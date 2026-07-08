@@ -84,10 +84,64 @@ export function migrateProfile(profile: any): PlayerProfile {
   };
 }
 
+const pageVariants = {
+  initial: (direction: 'forward' | 'backward') => ({
+    opacity: 0,
+    x: direction === 'forward' ? 120 : -120,
+    scale: 0.98,
+    filter: 'blur(6px)',
+  }),
+  animate: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: {
+      duration: 0.45,
+      ease: [0.16, 1, 0.3, 1],
+    }
+  },
+  exit: (direction: 'forward' | 'backward') => ({
+    opacity: 0,
+    x: direction === 'forward' ? -120 : 120,
+    scale: 0.98,
+    filter: 'blur(6px)',
+    transition: {
+      duration: 0.35,
+      ease: [0.16, 1, 0.3, 1],
+    }
+  })
+};
+
+const VIEW_ORDER: Record<string, number> = {
+  'LOGIN': 0,
+  'SELECTION': 1,
+  'MENU': 1,
+  'STORY': 2,
+  'ARENA': 2,
+  'TRAINING': 2
+};
+
 export default function App() {
   const [activeProfile, setActiveProfile] = useState<PlayerProfile | null>(null);
   const [currentView, setCurrentView] = useState<'LOGIN' | 'SELECTION' | 'MENU' | 'STORY' | 'ARENA' | 'TRAINING'>('LOGIN');
+  const [slideDirection, setSlideDirection] = useState<'forward' | 'backward'>('forward');
   const [showNewGameConfirm, setShowNewGameConfirm] = useState(false);
+
+  const changeView = (nextView: 'LOGIN' | 'SELECTION' | 'MENU' | 'STORY' | 'ARENA' | 'TRAINING') => {
+    const currentWeight = VIEW_ORDER[currentView] ?? 0;
+    const nextWeight = VIEW_ORDER[nextView] ?? 0;
+
+    if (nextWeight > currentWeight) {
+      setSlideDirection('forward');
+    } else if (nextWeight < currentWeight) {
+      setSlideDirection('backward');
+    } else {
+      // If weights are equal (e.g. going from STORY to ARENA or menu to selection), default or handle
+      setSlideDirection('forward');
+    }
+    setCurrentView(nextView);
+  };
 
   // Load profile on start
   useEffect(() => {
@@ -97,13 +151,13 @@ export default function App() {
         const parsed = JSON.parse(savedProfile);
         const migrated = migrateProfile(parsed);
         setActiveProfile(migrated);
-        setCurrentView('MENU');
+        changeView('MENU');
       } catch (e) {
         console.error('Failed to parse current profile', e);
-        setCurrentView('LOGIN');
+        changeView('LOGIN');
       }
     } else {
-      setCurrentView('LOGIN');
+      changeView('LOGIN');
     }
   }, []);
 
@@ -133,14 +187,14 @@ export default function App() {
     const migrated = migrateProfile(profile);
     setActiveProfile(migrated);
     localStorage.setItem(CURRENT_PROFILE_KEY, JSON.stringify(migrated));
-    setCurrentView('MENU');
+    changeView('MENU');
   };
 
   const handleLogout = () => {
     sound.playClick();
     setActiveProfile(null);
     localStorage.removeItem(CURRENT_PROFILE_KEY);
-    setCurrentView('LOGIN');
+    changeView('LOGIN');
   };
 
   const handleStartNewGame = () => {
@@ -160,14 +214,14 @@ export default function App() {
       storySave: DEFAULT_STORY_STATE
     };
     updateProfileAndSave(updated);
-    setCurrentView('STORY');
+    changeView('STORY');
     setShowNewGameConfirm(false);
   };
 
   const handleContinueGame = () => {
     sound.playClick();
     if (activeProfile) {
-      setCurrentView('STORY');
+      changeView('STORY');
     }
   };
 
@@ -199,25 +253,27 @@ export default function App() {
 
   const handleExitToSelection = () => {
     sound.playClick();
-    setCurrentView('MENU');
+    changeView('MENU');
   };
 
   const handleExitToMenu = () => {
     sound.playClick();
-    setCurrentView('MENU');
+    changeView('MENU');
   };
 
   return (
     <div id="game-app-root" className="font-sans antialiased bg-[#0e0705] min-h-screen text-white select-none">
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" custom={slideDirection}>
         
         {/* VIEW 1: LOGIN */}
         {currentView === 'LOGIN' && (
           <motion.div
             key="login-view"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            custom={slideDirection}
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
             className="w-full h-full"
           >
             <LoginScreen onLoginSuccess={handleLoginSuccess} />
@@ -228,9 +284,11 @@ export default function App() {
         {currentView === 'MENU' && activeProfile && (
           <motion.div
             key="menu-view"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            custom={slideDirection}
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
             className="w-full h-full"
           >
             <MainMenu
@@ -240,8 +298,8 @@ export default function App() {
               hasSavedGame={activeProfile.storySave.currentSceneId !== 'ch1_intro'}
               gameState={activeProfile.storySave}
               onBack={handleLogout}
-              onEnterArena={() => setCurrentView('ARENA')}
-              onEnterTraining={() => setCurrentView('TRAINING')}
+              onEnterArena={() => changeView('ARENA')}
+              onEnterTraining={() => changeView('TRAINING')}
               onUpdateProfile={updateProfileAndSave}
             />
           </motion.div>
@@ -251,9 +309,11 @@ export default function App() {
         {currentView === 'STORY' && activeProfile && (
           <motion.div
             key="story-playing-view"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            custom={slideDirection}
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
             className="w-full h-full"
           >
             <StoryScreen
@@ -269,9 +329,11 @@ export default function App() {
         {currentView === 'ARENA' && activeProfile && (
           <motion.div
             key="arena-view"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            custom={slideDirection}
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
             className="w-full h-full"
           >
             <ArenaMode
@@ -286,9 +348,11 @@ export default function App() {
         {currentView === 'TRAINING' && activeProfile && (
           <motion.div
             key="training-view"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            custom={slideDirection}
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
             className="w-full h-full"
           >
             <DiamondAttack
@@ -311,7 +375,7 @@ export default function App() {
                     updateProfileAndSave(updated);
                   }
                 }
-                setCurrentView('MENU');
+                changeView('MENU');
               }}
               isTraining={true}
             />

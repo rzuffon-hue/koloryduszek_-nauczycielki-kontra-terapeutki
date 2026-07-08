@@ -12,7 +12,7 @@ export const CHARACTERS: { [id: string]: Character } = {
     faction: 'NAUCZYCIELKI',
     role: 'Liderka Kreatywności',
     description: 'Nauczycielka z powołania, uśmiechnięta i wiecznie ubrudzona farbami. Wierzy, że najlepsza nauka płynie z radosnego chaosu.',
-    portraitUrl: '/src/assets/images/teachers_trio_1783451887451.jpg',
+    portraitUrl: '/src/assets/images/basia_portrait_1783550806247.jpg',
     accentColor: '#fbbf24', // Amber
     secondaryColor: '#f59e0b',
     abilities: ['Mural Radości', 'Koralikowy Wybuch', 'Taniec Spontaniczny'],
@@ -26,7 +26,7 @@ export const CHARACTERS: { [id: string]: Character } = {
     faction: 'NAUCZYCIELKI',
     role: 'Mistrzyni Opowieści',
     description: 'Cicha, ale niezwykle charyzmatyczna miłośniczka teatru lalek i baśni. Potrafi zamienić stertę kartonów w latający zamek.',
-    portraitUrl: '/src/assets/images/teachers_trio_1783451887451.jpg',
+    portraitUrl: '/src/assets/images/hania_portrait_1783550817665.jpg',
     accentColor: '#34d399', // Emerald
     secondaryColor: '#10b981',
     abilities: ['Teatrzyk Kukiełkowy', 'Baśniowa Tarcza', 'Zew Przygody'],
@@ -40,7 +40,7 @@ export const CHARACTERS: { [id: string]: Character } = {
     faction: 'NAUCZYCIELKI',
     role: 'Wulkan Energii',
     description: 'Najmłodsza w zespole, uczy tańca, rytmiki i uwielbia zabawy na świeżym powietrzu. Dzieci biegają za nią jak za prawdziwym superbohaterem.',
-    portraitUrl: '/src/assets/images/teachers_trio_1783451887451.jpg',
+    portraitUrl: '/src/assets/images/zosia_portrait_1783550831052.jpg',
     accentColor: '#f87171', // Red/Rose
     secondaryColor: '#f43f5e',
     abilities: ['Rytmiczny Skok', 'Berek Kolorów', 'Tornado Śmiechu'],
@@ -54,7 +54,7 @@ export const CHARACTERS: { [id: string]: Character } = {
     faction: 'TERAPEUTKI',
     role: 'Wielka Mistrzyni Zakonu',
     description: 'Wielka Mistrzyni Zakonu. Nigdy nie podnosi głosu, zawsze mówi spokojnie i zawsze się uśmiecha. Jest niezwykle inteligentna i przewiduje ruchy przeciwników o kilka kroków naprzód.',
-    portraitUrl: '/src/assets/images/therapists_trio_1783451898546.jpg',
+    portraitUrl: '/src/assets/images/calm_portrait_1783550841951.jpg',
     accentColor: '#60a5fa', // Blue
     secondaryColor: '#3b82f6',
     abilities: ['Bąbel Wykluczenia Dźwięków', 'Rytuał Srebrnego Krokodyla', 'Strefa Zero'],
@@ -68,7 +68,7 @@ export const CHARACTERS: { [id: string]: Character } = {
     faction: 'TERAPEUTKI',
     role: 'Specjalistka od Intryg',
     description: 'Specjalistka od plotek i manipulacji. Potrafi skłócić każdego z każdym. Nigdy nie walczy bezpośrednio – jej największą bronią są intrygi.',
-    portraitUrl: '/src/assets/images/therapists_trio_1783451898546.jpg',
+    portraitUrl: '/src/assets/images/whisper_portrait_1783550853186.jpg',
     accentColor: '#a78bfa', // Purple
     secondaryColor: '#8b5cf6',
     abilities: ['Szept ASMR', 'Lampa Lawowa Spokoju', 'Zegarmistrzowski Sen'],
@@ -82,7 +82,7 @@ export const CHARACTERS: { [id: string]: Character } = {
     faction: 'TERAPEUTKI',
     role: 'Korektorka Przestrzeni',
     description: 'Odpowiada za bezpośrednią realizację planów zakonu. Tworzy sztywne zasady, regulaminy i ograniczenia mające utrudnić życie nauczycielkom oraz przygotowuje kolejne etapy przejęcia sal.',
-    portraitUrl: '/src/assets/images/therapists_trio_1783451898546.jpg',
+    portraitUrl: '/src/assets/images/harmony_portrait_1783550862967.jpg',
     accentColor: '#2dd4bf', // Teal
     secondaryColor: '#0d9488',
     abilities: ['Symetryczny Dotyk', 'Kamerton Ładu', 'Wektor Czystości'],
