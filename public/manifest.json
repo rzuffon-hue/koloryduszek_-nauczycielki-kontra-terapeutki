@@ -1,0 +1,36 @@
+{
+  "short_name": "Koloryduszek",
+  "name": "KOLORYDUSZEK: Nauczycielki kontra Terapeutki",
+  "description": "Urocze przedszkole 'Tęczowy Zakątek' skrywa wielką tajemnicę. Wybierz stronę konfliktu między kreatywnymi Nauczycielkami a zorganizowanymi Terapeutkami.",
+  "icons": [
+    {
+      "src": "/icon-512.jpg",
+      "type": "image/jpeg",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.jpg",
+      "type": "image/jpeg",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.jpg",
+      "type": "image/jpeg",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512.jpg",
+      "type": "image/jpeg",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#09090b",
+  "theme_color": "#f59e0b",
+  "display": "standalone",
+  "orientation": "portrait"
+}
