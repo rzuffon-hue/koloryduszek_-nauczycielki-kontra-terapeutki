@@ -1,0 +1,6 @@
+{
+  "name": "KOLORYDUSZEK: NAUCZYCIELKI KONTRA TERAPEUTKI",
+  "description": "Urocze przedszkole 'Tęczowy Zakątek' skrywa wielką tajemnicę. Wybierz stronę konfliktu między kreatywnymi Nauczycielkami a zorganizowanymi Terapeutkami w tej przepięknej, interaktywnej grze przygodowej z minigrami.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
