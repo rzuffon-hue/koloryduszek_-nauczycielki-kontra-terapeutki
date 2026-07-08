@@ -174,7 +174,7 @@ export default function ArenaMode({ playerProfile, onUpdateProfile, onExit }: Ar
       return;
     }
 
-    playClick();
+    sound.playLevelUp();
     const nextLevels = {
       ...playerProfile.teacherLevels,
       [teacherId]: currentLvl + 1

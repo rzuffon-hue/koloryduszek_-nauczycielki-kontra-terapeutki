@@ -95,11 +95,7 @@ export default function StoryScreen({ gameState, onUpdateState, onExitToMenu, pl
     if (newlyUnlocked.length > 0) {
       // Find character name from registry
       const charName = CHARACTERS[newlyUnlocked[0]]?.name || newlyUnlocked[0];
-      if (sound.playSuccess) {
-        sound.playSuccess();
-      } else {
-        sound.playClick();
-      }
+      sound.playUnlock();
       setShowNotification(`🎉 ODBLOKOWANO KARTOTEKĘ: ${charName}! Możesz przeczytać jej akta w Menu.`);
       const timer = setTimeout(() => setShowNotification(null), 5000);
       return () => clearTimeout(timer);
@@ -119,6 +115,12 @@ export default function StoryScreen({ gameState, onUpdateState, onExitToMenu, pl
 
     if (typewriterTimerRef.current) {
       clearInterval(typewriterTimerRef.current);
+    }
+
+    // Play situational warning sound for scary characters when they start speaking
+    const scarySpeakers = ['dyrektorka', 'sonia', 'lysy_kierownik'];
+    if (scarySpeakers.includes(currentDialogue.speakerId)) {
+      sound.playAlert();
     }
 
     setTypedText('');
@@ -162,9 +164,9 @@ export default function StoryScreen({ gameState, onUpdateState, onExitToMenu, pl
     }
     lastClickTimeRef.current = now;
 
-    sound.playClick();
     const fullText = currentDialogue?.text || '';
     if (isTypewriterActiveRef.current) {
+      sound.playClick();
       // Skipped/sped up - clear typing timer and instantly reveal full text
       if (typewriterTimerRef.current) {
         clearInterval(typewriterTimerRef.current);
@@ -176,19 +178,21 @@ export default function StoryScreen({ gameState, onUpdateState, onExitToMenu, pl
     }
 
     if (dialogueIndex < scene.dialogue.length - 1) {
+      sound.playSwipe();
       setDialogueIndex(prev => prev + 1);
     } else if (scene.minigameType && !activeMinigame) {
+      sound.playBattleStart();
       // Trigger minigame after dialogue finishes
       setActiveMinigame(scene.minigameType);
     }
   };
 
   const handleChoiceSelect = (choice: Choice) => {
-    sound.playClick();
+    sound.playChoice();
 
     // Check faction requirement if exists
     if (choice.requiredFaction && gameState.playerFactionChoice !== choice.requiredFaction) {
-      sound.playClick();
+      sound.playFail();
       setShowNotification(`Ten wybór wymaga przynależności do frakcji: ${choice.requiredFaction === 'NAUCZYCIELKI' ? '🌼 NAUCZYCIELKI' : '🔷 TERAPEUTKI'}`);
       setTimeout(() => setShowNotification(null), 3500);
       return;
@@ -205,6 +209,7 @@ export default function StoryScreen({ gameState, onUpdateState, onExitToMenu, pl
     // Handle inventory
     const nextInventory = [...gameState.inventory];
     if (choice.gainItem && !nextInventory.includes(choice.gainItem)) {
+      sound.playAchievement();
       nextInventory.push(choice.gainItem);
     }
 

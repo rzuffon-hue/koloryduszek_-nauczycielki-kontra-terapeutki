@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Play, RotateCcw, Users, Info, Settings, Sparkles, Volume2, VolumeX, ShieldQuestion, Star, Compass, Coins, Gem, LogOut, Wrench, Layers, Lock } from 'lucide-react';
+import { Play, RotateCcw, Users, Info, Settings, Sparkles, Volume2, VolumeX, ShieldQuestion, Star, Compass, Coins, Gem, LogOut, Wrench, Layers, Lock, Download, Smartphone } from 'lucide-react';
 import { sound } from './SoundManager';
 import { CHARACTERS } from '../data/characters';
 import { CHAPTERS } from '../data/chapters';
@@ -37,6 +37,49 @@ export default function MainMenu({
   const [activeTab, setActiveTab] = useState<'main' | 'characters' | 'about' | 'admin'>('main');
   const [isMuted, setIsMuted] = useState(sound.getMuted());
   const [selectedChar, setSelectedChar] = useState<string | null>(null);
+
+  // PWA installation states
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  const [isInstalled, setIsInstalled] = useState(false);
+
+  useEffect(() => {
+    const handleBeforeInstallPrompt = (e: Event) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+      console.log('[PWA] beforeinstallprompt event caught!');
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
+    const handleAppInstalled = () => {
+      console.log('[PWA] App installed!');
+      setIsInstalled(true);
+      setDeferredPrompt(null);
+    };
+
+    window.addEventListener('appinstalled', handleAppInstalled);
+
+    if (window.matchMedia('(display-mode: standalone)').matches || (navigator as any).standalone) {
+      setIsInstalled(true);
+    }
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      window.removeEventListener('appinstalled', handleAppInstalled);
+    };
+  }, []);
+
+  const handleInstallApp = async () => {
+    if (!deferredPrompt) return;
+    sound.playClick();
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`[PWA] Install choice outcome: ${outcome}`);
+    if (outcome === 'accepted') {
+      setIsInstalled(true);
+    }
+    setDeferredPrompt(null);
+  };
 
   // Admin Tester state
   const [selectedAdminChapter, setSelectedAdminChapter] = useState<number>(1);
@@ -150,6 +193,11 @@ export default function MainMenu({
                   Nauczycielki vs Terapeutki
                 </h2>
                 <div className="h-1 w-32 bg-gradient-to-r from-red-500 via-yellow-400 to-cyan-400 mx-auto rounded-full mt-4 shadow-[0_0_15px_rgba(252,211,77,0.5)]" />
+                {isInstalled && (
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono font-bold tracking-wider uppercase mt-3 animate-pulse">
+                    <Smartphone className="w-3.5 h-3.5" /> Aplikacja PWA aktywna
+                  </div>
+                )}
               </div>
 
               {/* Stats HUD if continued */}
@@ -221,6 +269,16 @@ export default function MainMenu({
                     className="w-full bg-gradient-to-r from-amber-500 via-amber-400 to-[#ff9068] text-slate-950 font-black py-4 px-6 rounded-2xl shadow-[0_4px_25px_rgba(245,158,11,0.4)] hover:brightness-110 transform hover:scale-[1.01] active:scale-99 transition flex items-center justify-center gap-2.5 text-base tracking-widest uppercase border-b-4 border-amber-700"
                   >
                     <Wrench className="w-5 h-5 animate-pulse" /> PANEL TESTERA SEBASTIANA
+                  </button>
+                )}
+
+                {deferredPrompt && (
+                  <button
+                    onClick={handleInstallApp}
+                    id="pwa-install-btn"
+                    className="w-full bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 text-slate-950 font-black py-4 px-6 rounded-2xl shadow-[0_4px_20px_rgba(16,185,129,0.3)] hover:brightness-110 transform hover:scale-[1.01] active:scale-99 transition flex items-center justify-center gap-2.5 text-base tracking-wider uppercase border-b-4 border-emerald-700"
+                  >
+                    <Download className="w-5 h-5" /> ZAINSTALUJ JAKO APLIKACJĘ (PWA)
                   </button>
                 )}
 

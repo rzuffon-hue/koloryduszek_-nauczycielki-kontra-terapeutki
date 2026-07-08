@@ -780,6 +780,7 @@ export default function DiamondAttack({ playerProfile, opponentId, opponentLevel
     let quote = '"Nasz kreatywny chaos rozbije każdy sterylny rygor!"';
 
     if (color === 'RED') {
+      sound.playHit();
       teacherId = 'basia';
       tName = 'Pani Basia';
       attackDesc = 'Fort z Krzeseł!';
@@ -788,6 +789,7 @@ export default function DiamondAttack({ playerProfile, opponentId, opponentLevel
       accentColor = '#f43f5e';
       quote = '"Kredki i budowle ponad sterylne biurka! Fort z Krzeseł!"';
     } else if (color === 'YELLOW') {
+      sound.playPaint();
       teacherId = 'hania';
       tName = 'Pani Hania';
       attackDesc = 'Eksplozja Farb!';
@@ -796,6 +798,7 @@ export default function DiamondAttack({ playerProfile, opponentId, opponentLevel
       accentColor = '#fbbf24';
       quote = '"Każda plama to krok do bajecznej przygody! Eksplozja farb!"';
     } else if (color === 'PURPLE') {
+      sound.playZap();
       teacherId = 'zosia';
       tName = 'Pani Zosia';
       attackDesc = 'Mroczna Bajka!';
@@ -804,6 +807,7 @@ export default function DiamondAttack({ playerProfile, opponentId, opponentLevel
       accentColor = '#a855f7';
       quote = '"Roztańczymy ten smutny regulamin! Czas na radosny chaos!"';
     } else if (color === 'BLUE') {
+      sound.playHeal();
       teacherId = 'dyrektor';
       tName = 'Sojusz Dyrekcji';
       attackDesc = 'Dzwonek Władzy!';

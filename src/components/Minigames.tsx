@@ -306,6 +306,7 @@ function FortGame({ onWin, onLose }: { onWin: (f: number, o: number) => void; on
 
     if (pivotX >= targetMin && pivotX <= targetMax) {
       // Successful drop!
+      sound.playBlock();
       const newItem = {
         id: items.length,
         y: items.length * 40,
@@ -317,13 +318,16 @@ function FortGame({ onWin, onLose }: { onWin: (f: number, o: number) => void; on
       setItems(updated);
 
       if (updated.length >= 6) {
+        sound.playLevelUp();
         setTimeout(() => onWin(25, -10), 600);
       }
     } else {
       // Missed!
+      sound.playHit();
       const nextLives = lives - 1;
       setLives(nextLives);
       if (nextLives <= 0) {
+        sound.playFail();
         onLose();
       }
     }
@@ -394,7 +398,7 @@ function PaintGame({ onWin }: { onWin: (f: number, o: number) => void }) {
   ];
 
   const paintCell = (idx: number) => {
-    sound.playClick();
+    sound.playPaint();
     const nextGrid = [...grid];
     nextGrid[idx] = selectedColor;
     setGrid(nextGrid);
@@ -405,6 +409,7 @@ function PaintGame({ onWin }: { onWin: (f: number, o: number) => void }) {
 
     const percent = (painted / (GRID_SIZE * GRID_SIZE)) * 100;
     if (percent >= 85) {
+      sound.playLevelUp();
       // Determine what flavor the painting has
       const freedomColorCount = nextGrid.filter(c => c === '#fbbf24' || c === '#ec4899').length;
       const orderColorCount = nextGrid.filter(c => c === '#60a5fa' || c === '#2dd4bf' || c === '#a78bfa').length;
@@ -486,13 +491,14 @@ function BlocksGame({ onWin }: { onWin: (f: number, o: number) => void }) {
   ]);
 
   const placeBlock = (blockId: number, box: 'CHAOS' | 'SYMMETRY') => {
-    sound.playClick();
+    sound.playBlock();
     const nextBlocks = blocks.map(b => b.id === blockId ? { ...b, placedIn: box } : b);
     setBlocks(nextBlocks);
 
     // If all are placed, calculate stats based on final location
     const unplaced = nextBlocks.filter(b => b.placedIn === 'NONE').length;
     if (unplaced === 0) {
+      sound.playLevelUp();
       const chaosCount = nextBlocks.filter(b => b.placedIn === 'CHAOS').length;
       const symmetryCount = nextBlocks.filter(b => b.placedIn === 'SYMMETRY').length;
 
@@ -610,16 +616,19 @@ function MovementGame({ onWin, onLose }: { onWin: (f: number, o: number) => void
     setAttempts(nextAttempts);
 
     if (isInGreen) {
-      sound.playSuccess();
+      sound.playUnlock();
       const nextScore = score + 1;
       setScore(nextScore);
 
       if (nextScore >= 5) {
+        sound.playLevelUp();
         onWin(20, 15);
       }
     } else {
       // Failed tap
+      sound.playHit();
       if (nextAttempts < (5 - score)) {
+        sound.playFail();
         onLose();
       }
     }
@@ -681,12 +690,13 @@ function HiddenObjectsGame({ onWin }: { onWin: (f: number, o: number) => void })
   ]);
 
   const clickItem = (id: string) => {
-    sound.playSuccess();
+    sound.playUnlock();
     const updated = items.map(it => it.id === id ? { ...it, found: true } : it);
     setItems(updated);
 
     const allFound = updated.every(it => it.found);
     if (allFound) {
+      sound.playLevelUp();
       setTimeout(() => onWin(15, 15), 600);
     }
   };
@@ -771,6 +781,7 @@ function PuzzleGame({ onWin }: { onWin: (f: number, o: number) => void }) {
     const solvedRight = nextPipes[7].rotation === 0 || nextPipes[7].rotation === 180;
 
     if (solved && solvedCenter && solvedRight) {
+      sound.playLevelUp();
       setTimeout(() => onWin(15, 25), 600);
     }
   };

@@ -268,6 +268,189 @@ class SoundManager {
     }
   }
 
+  playAchievement() {
+    this.initContext();
+    if (this.isMuted || !this.ctx) return;
+    try {
+      const now = this.ctx.currentTime;
+      const freqs = [880.00, 1046.50, 1318.51, 1567.98]; // A5, C6, E6, G6 (Sparkling)
+      freqs.forEach((freq, idx) => {
+        const osc = this.ctx!.createOscillator();
+        const gain = this.ctx!.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now + idx * 0.06);
+        gain.gain.setValueAtTime(0, now);
+        gain.gain.linearRampToValueAtTime(0.06, now + idx * 0.06 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.06 + 0.25);
+        osc.connect(gain);
+        gain.connect(this.ctx!.destination);
+        osc.start(now + idx * 0.06);
+        osc.stop(now + idx * 0.06 + 0.28);
+      });
+    } catch (e) {
+      console.warn('Audio playAchievement failed', e);
+    }
+  }
+
+  playLevelUp() {
+    this.initContext();
+    if (this.isMuted || !this.ctx) return;
+    try {
+      const now = this.ctx.currentTime;
+      const freqs = [261.63, 329.63, 392.00, 523.25, 659.25, 783.99, 1046.50]; // C4, E4, G4, C5, E5, G5, C6
+      freqs.forEach((freq, idx) => {
+        const osc = this.ctx!.createOscillator();
+        const gain = this.ctx!.createGain();
+        osc.type = idx === freqs.length - 1 ? 'sine' : 'triangle';
+        osc.frequency.setValueAtTime(freq, now + idx * 0.07);
+        gain.gain.setValueAtTime(0, now);
+        gain.gain.linearRampToValueAtTime(0.08, now + idx * 0.07 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.07 + 0.4);
+        osc.connect(gain);
+        gain.connect(this.ctx!.destination);
+        osc.start(now + idx * 0.07);
+        osc.stop(now + idx * 0.07 + 0.45);
+      });
+    } catch (e) {
+      console.warn('Audio playLevelUp failed', e);
+    }
+  }
+
+  playChoice() {
+    this.initContext();
+    if (this.isMuted || !this.ctx) return;
+    try {
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(261.63, now); // C4
+      osc.frequency.exponentialRampToValueAtTime(329.63, now + 0.15); // E4
+      gain.gain.setValueAtTime(0.12, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(now + 0.17);
+    } catch (e) {
+      console.warn('Audio playChoice failed', e);
+    }
+  }
+
+  playAlert() {
+    this.initContext();
+    if (this.isMuted || !this.ctx) return;
+    try {
+      const now = this.ctx.currentTime;
+      // Low dual warning buzz
+      for (let i = 0; i < 2; i++) {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(110 + i * 2, now); // slightly detuned
+        gain.gain.setValueAtTime(0.08, now);
+        gain.gain.linearRampToValueAtTime(0.08, now + 0.2);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(now + 0.32);
+      }
+    } catch (e) {
+      console.warn('Audio playAlert failed', e);
+    }
+  }
+
+  playUnlock() {
+    this.initContext();
+    if (this.isMuted || !this.ctx) return;
+    try {
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(392.00, now); // G4
+      osc.frequency.exponentialRampToValueAtTime(1567.98, now + 0.25); // G6
+      gain.gain.setValueAtTime(0, now);
+      gain.gain.linearRampToValueAtTime(0.1, now + 0.05);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(now + 0.32);
+    } catch (e) {
+      console.warn('Audio playUnlock failed', e);
+    }
+  }
+
+  playBattleStart() {
+    this.initContext();
+    if (this.isMuted || !this.ctx) return;
+    try {
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(150, now);
+      osc.frequency.linearRampToValueAtTime(450, now + 0.4);
+      gain.gain.setValueAtTime(0, now);
+      gain.gain.linearRampToValueAtTime(0.12, now + 0.1);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(now + 0.46);
+    } catch (e) {
+      console.warn('Audio playBattleStart failed', e);
+    }
+  }
+
+  playHit() {
+    this.initContext();
+    if (this.isMuted || !this.ctx) return;
+    try {
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(140, now);
+      osc.frequency.linearRampToValueAtTime(40, now + 0.12);
+      gain.gain.setValueAtTime(0.18, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.13);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(now + 0.14);
+    } catch (e) {
+      console.warn('Audio playHit failed', e);
+    }
+  }
+
+  playHeal() {
+    this.initContext();
+    if (this.isMuted || !this.ctx) return;
+    try {
+      const now = this.ctx.currentTime;
+      // Two rising sweeps for healing bubbliness
+      [0, 0.05].forEach((delay) => {
+        const osc = this.ctx!.createOscillator();
+        const gain = this.ctx!.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(440, now + delay);
+        osc.frequency.exponentialRampToValueAtTime(1200, now + delay + 0.25);
+        gain.gain.setValueAtTime(0, now + delay);
+        gain.gain.linearRampToValueAtTime(0.08, now + delay + 0.05);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + delay + 0.25);
+        osc.connect(gain);
+        gain.connect(this.ctx!.destination);
+        osc.start(now + delay);
+        osc.stop(now + delay + 0.26);
+      });
+    } catch (e) {
+      console.warn('Audio playHeal failed', e);
+    }
+  }
+
 
   playMusic(style: 'happy' | 'calm' | 'tension') {
     this.initContext();
