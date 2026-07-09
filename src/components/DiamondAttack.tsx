@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Sparkles, Heart, Sword, Shield, Clock, RotateCcw, Award, Zap, Smile, BookOpen, Skull, Volume2, VolumeX, Flame } from 'lucide-react';
 import { PlayerProfile } from '../types';
@@ -1115,8 +1116,8 @@ export default function DiamondAttack({ playerProfile, opponentId, opponentLevel
     }
   };
 
-  return (
-    <div className="fixed inset-0 bg-[#0c0604] text-white z-50 flex flex-col p-4 md:p-6 overflow-hidden select-none font-sans">
+  return createPortal(
+    <div className="fixed inset-0 bg-[#0c0604] text-white z-50 flex flex-col p-2 xs:p-3 md:p-6 overflow-hidden select-none font-sans">
       
       {/* 1. Animated Classroom Background Backdrop */}
       <ClassroomBackground 
@@ -1133,7 +1134,7 @@ export default function DiamondAttack({ playerProfile, opponentId, opponentLevel
       />
 
       {/* Header bar */}
-      <div className="w-full flex items-center justify-between border-b border-[#ff9068]/25 pb-3 mb-4 shrink-0 relative z-30">
+      <div className="w-full flex items-center justify-between border-b border-[#ff9068]/25 pb-1.5 md:pb-3 mb-2 md:mb-4 shrink-0 relative z-30">
         <div className="flex items-center gap-3">
           <div className="bg-[#ff9068]/15 border border-[#ff9068]/30 px-3.5 py-1.5 rounded-2xl flex items-center gap-2">
             <Flame className="w-4 h-4 text-[#ff9068] animate-pulse" />
@@ -1162,11 +1163,11 @@ export default function DiamondAttack({ playerProfile, opponentId, opponentLevel
           y: [-4, 4, -2, 2, -1, 1, 0],
           transition: { duration: 0.4 }
         } : {}}
-        className="flex-1 flex flex-col lg:flex-row gap-6 md:gap-8 justify-center items-center max-w-6xl w-full mx-auto relative z-30 overflow-y-auto"
+        className="flex-1 flex flex-col lg:flex-row gap-2 lg:gap-8 justify-center items-center max-w-6xl w-full mx-auto relative z-30 overflow-y-auto lg:overflow-hidden"
       >
         
         {/* LEFT PORTAL: Opponent and Player stats/cards */}
-        <div className="w-full max-w-md flex flex-col gap-4 shrink-0 justify-center">
+        <div className="hidden lg:flex w-full max-w-md flex-col gap-4 shrink-0 justify-center">
           
           {/* Opponent (Therapist) card */}
           <motion.div 
@@ -1342,6 +1343,107 @@ export default function DiamondAttack({ playerProfile, opponentId, opponentLevel
         {/* RIGHT PORTAL: The interactive Match-3 board with 3D tilts */}
         <div className="flex-1 flex flex-col justify-center items-center w-full relative">
           
+          {/* Mobile HUD (gorgeous split VS panel with prominent opponent portrait) */}
+          <div className="flex lg:hidden flex-col gap-1 w-full max-w-[310px] xs:max-w-[340px] sm:max-w-[380px] mb-1 relative z-30">
+            <div className="bg-[#180a06]/85 border border-[#ff9068]/25 rounded-xl p-1.5 flex items-center justify-between gap-2 shadow-lg relative overflow-hidden">
+              <div className="absolute inset-0 bg-radial-gradient from-[#ff9068]/5 to-transparent pointer-events-none" />
+              
+              {/* Opponent Left Side (Large Graphic) */}
+              <div className="flex items-center gap-1.5 max-w-[55%]">
+                <div className={`w-11 h-11 xs:w-12 xs:h-12 rounded-full border-2 overflow-hidden shrink-0 relative ${
+                  isOpponentHurt 
+                    ? 'border-red-500 scale-105 animate-pulse' 
+                    : 'border-[#ff9068]/40'
+                }`}>
+                  {opponent.portraitUrl ? (
+                    <img 
+                      src={opponent.portraitUrl} 
+                      alt={opponent.name} 
+                      referrerPolicy="no-referrer"
+                      className={`w-full h-full object-cover ${
+                        isOpponentHurt ? 'brightness-125 saturate-150 scale-110' : ''
+                      }`}
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-slate-800 flex items-center justify-center text-white font-bold text-xs">
+                      {opponent.name[0]}
+                    </div>
+                  )}
+                </div>
+                
+                <div className="flex flex-col min-w-0">
+                  <span className="text-[7px] font-black uppercase tracking-wider text-[#ff9068]/80 truncate">
+                    {opponent.role}
+                  </span>
+                  <span className="text-[11px] font-black text-white truncate leading-none mb-0.5">
+                    {opponent.name}
+                  </span>
+                  {/* Opponent HP Bar */}
+                  <div className="flex flex-col gap-0.5 w-16 xs:w-20">
+                    <div className="flex justify-between items-center text-[7px] text-slate-300 font-mono leading-none">
+                      <span>HP</span>
+                      <span>{enemyHp}/{maxEnemyHp}</span>
+                    </div>
+                    <div className="h-1 w-full bg-black/50 rounded-full overflow-hidden">
+                      <div 
+                        style={{ width: `${(enemyHp / maxEnemyHp) * 100}%` }}
+                        className="h-full bg-gradient-to-r from-red-600 to-rose-400 transition-all duration-300"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* VS Divider or Round indicators */}
+              <div className="flex flex-col items-center justify-center shrink-0">
+                <span className="text-[9px] font-black text-[#ff9068] tracking-widest bg-[#ff9068]/10 px-1 py-0.5 rounded border border-[#ff9068]/20">VS</span>
+                <span className="text-[8px] font-mono text-cyan-400 mt-0.5 flex items-center gap-0.5">
+                  <Clock className="w-2 h-2" />
+                  R:{enemyTimer}
+                </span>
+              </div>
+
+              {/* Player / Training score Right Side */}
+              <div className="flex-1 flex flex-col items-end min-w-0">
+                {isTraining ? (
+                  <div className="flex flex-col items-end text-right">
+                    <span className="text-[7px] font-black uppercase tracking-wider text-purple-400 leading-none">
+                      WYNIK
+                    </span>
+                    <span className="text-xs font-black text-white leading-tight">
+                      {score}
+                    </span>
+                    <span className="text-[7px] font-mono text-slate-400 leading-none">
+                      Rekord: {Math.max(score, playerProfile.stats.trainingHighScore || 0)}
+                    </span>
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-end text-right w-full">
+                    <span className="text-[7px] font-black uppercase tracking-wider text-emerald-400 leading-none">
+                      GRACZ
+                    </span>
+                    <span className="text-[9px] font-mono text-slate-300 leading-normal">
+                      {playerHp}/{maxPlayerHp}
+                    </span>
+                    {/* Player HP Bar */}
+                    <div className="h-1 w-16 xs:w-20 bg-black/50 rounded-full overflow-hidden mt-0.5">
+                      <div 
+                        style={{ width: `${(playerHp / maxPlayerHp) * 100}%` }}
+                        className="h-full bg-gradient-to-r from-emerald-500 to-teal-400 transition-all duration-300"
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Speech Bubble popping from opponent portrait */}
+            <div className="flex items-center gap-1.5 px-2 py-0.5 bg-black/45 border border-white/5 rounded-lg text-[9px] text-slate-300 leading-normal">
+              <span className="text-[#ffdfa0] shrink-0 font-bold">📢 {opponent.name}:</span>
+              <span className="italic truncate">"{enemySpeech}"</span>
+            </div>
+          </div>
+          
           {/* Main board tilted in 3D */}
           <div 
             onMouseMove={handleBoardMouseMove}
@@ -1350,8 +1452,26 @@ export default function DiamondAttack({ playerProfile, opponentId, opponentLevel
               transform: `perspective(1000px) rotateX(${boardRotation.x}deg) rotateY(${boardRotation.y}deg) rotateZ(0.5deg)`,
               transition: 'transform 0.15s ease-out'
             }}
-            className="w-full aspect-square max-w-[420px] bg-gradient-to-b from-[#25130b] to-[#120804] border-4 border-[#ff9068]/50 rounded-[40px] p-5 shadow-[0_25px_60px_rgba(0,0,0,0.95)] relative overflow-hidden"
+            className="game-board w-full aspect-square max-w-[290px] xs:max-w-[320px] sm:max-w-[360px] lg:max-w-[420px] bg-gradient-to-b from-[#25130b] to-[#120804] border-4 border-[#ff9068]/50 rounded-[20px] xs:rounded-[24px] lg:rounded-[40px] p-2 xs:p-3 sm:p-5 shadow-[0_25px_60px_rgba(0,0,0,0.95)] relative overflow-hidden"
           >
+            {/* Height Media Queries to guarantee no scrolling on any mobile phone */}
+            <style>{`
+              @media (max-height: 740px) {
+                .game-board {
+                  max-width: 270px !important;
+                }
+              }
+              @media (max-height: 680px) {
+                .game-board {
+                  max-width: 240px !important;
+                }
+              }
+              @media (max-height: 600px) {
+                .game-board {
+                  max-width: 200px !important;
+                }
+              }
+            `}</style>
             <div className="absolute inset-0 bg-radial-gradient from-transparent via-black/10 to-black/75 pointer-events-none" />
             <div className="absolute inset-0 border border-white/5 rounded-[36px] pointer-events-none" />
 
@@ -1413,8 +1533,59 @@ export default function DiamondAttack({ playerProfile, opponentId, opponentLevel
             </div>
           </div>
 
-          {/* Attack Legends panel */}
-          <div className="w-full max-w-md bg-black/45 border border-white/5 rounded-2xl p-3.5 mt-4 flex flex-col gap-2 relative z-10">
+          {/* Mobile Footer/Stats & Legends (visible only on mobile/tablet) */}
+          <div className="flex lg:hidden flex-col gap-1 w-full max-w-[310px] xs:max-w-[340px] sm:max-w-[380px] mt-1.5 relative z-30">
+            {/* Quick stats row */}
+            <div className="grid grid-cols-3 gap-2 bg-black/40 border border-white/5 rounded-xl p-1.5 text-center text-[10px]">
+              {isTraining ? (
+                <>
+                  <div>
+                    <span className="text-slate-400 block text-[9px] uppercase">Wynik</span>
+                    <strong className="text-white font-bold text-sm">{score}</strong>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 block text-[9px] uppercase">Rekord</span>
+                    <strong className="text-amber-400 font-bold text-sm">
+                      {Math.max(score, playerProfile.stats.trainingHighScore || 0)}
+                    </strong>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 block text-[9px] uppercase">Combo | Tury</span>
+                    <strong className="text-cyan-400 font-bold text-xs">{comboCount}x | {turnsUsed}</strong>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div>
+                    <span className="text-slate-400 block text-[9px] uppercase">Combo</span>
+                    <strong className="text-amber-400 font-bold text-sm">{comboCount}x</strong>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 block text-[9px] uppercase">Tury</span>
+                    <strong className="text-cyan-300 font-bold text-sm">{turnsUsed}</strong>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 block text-[9px] uppercase">Wyciszenie</span>
+                    <strong className="text-slate-200 font-bold text-sm">
+                      {silenceCounter > 0 ? `${silenceCounter} t` : 'brak'}
+                    </strong>
+                  </div>
+                </>
+              )}
+            </div>
+
+            {/* Compact Legend Row */}
+            <div className="flex justify-center items-center flex-wrap gap-x-2 gap-y-0.5 text-[9px] text-slate-400 bg-black/20 p-1 rounded-lg border border-white/5 mt-0.5">
+              <span className="flex items-center gap-0.5"><span className="text-[8px]">🔴</span> Atak</span>
+              <span className="flex items-center gap-0.5"><span className="text-[8px]">🟡</span> Obszar</span>
+              <span className="flex items-center gap-0.5"><span className="text-[8px]">🟣</span> Debuff</span>
+              <span className="flex items-center gap-0.5"><span className="text-[8px]">🔵</span> Tarcza</span>
+              <span className="flex items-center gap-0.5"><span className="text-[8px]">🟢</span> Leczenie</span>
+            </div>
+          </div>
+
+          {/* Desktop Attack Legends panel */}
+          <div className="hidden lg:flex w-full max-w-md bg-black/45 border border-white/5 rounded-2xl p-3.5 mt-4 flex-col gap-2 relative z-10">
             <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest text-center">
               Legenda Ataków Kolorów
             </span>
@@ -1660,6 +1831,7 @@ export default function DiamondAttack({ playerProfile, opponentId, opponentLevel
         )}
       </AnimatePresence>
 
-    </div>
+    </div>,
+    document.body
   );
 }

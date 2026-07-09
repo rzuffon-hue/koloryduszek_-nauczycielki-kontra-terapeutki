@@ -15,7 +15,7 @@ export const CHAPTERS: Chapter[] = [
       ch1_intro: {
         id: 'ch1_intro',
         title: 'Brama Tęczowego Zakątka',
-        backgroundUrl: '/src/assets/images/kindergarten_garden_1783451914603.jpg',
+        backgroundUrl: '/assets/images/kindergarten_garden_1783451914603.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Stoisz przed bramą przedszkola "Tęczowy Zakątek". Kolorowe flagi łopoczą na wietrze, a z wnętrza dobiega stłumiony śmiech dzieci.' },
           { speakerId: 'player', text: 'Moja nowa praca... Wygląda uroczo. Mam nadzieję, że dzieciaki mnie polubią.' },
@@ -44,7 +44,7 @@ export const CHAPTERS: Chapter[] = [
       ch1_teachers_path: {
         id: 'ch1_teachers_path',
         title: 'Szalona sala maluchów',
-        backgroundUrl: '/src/assets/images/teachers_trio_1783451887451.jpg',
+        backgroundUrl: '/assets/images/teachers_trio_1783451887451.jpg',
         dialogue: [
           { speakerId: 'basia', text: 'Świetnie! Prawdziwa asystentka musi mieć energię! Chodź, pokażę ci naszą salę. Mamy tu kącik malarski, teatr lalek Hani i klocki!' },
           { speakerId: 'hania', text: 'Witaj, duszyczko! Właśnie przygotowujemy wielki napad piratów na wyspę skarbów. Potrzebujemy kogoś, kto potrafi ryczeć jak prawdziwy potwór morski!' },
@@ -73,7 +73,7 @@ export const CHAPTERS: Chapter[] = [
       ch1_therapists_path: {
         id: 'ch1_therapists_path',
         title: 'Sterylny Gabinet Wyciszenia',
-        backgroundUrl: '/src/assets/images/therapists_trio_1783451898546.jpg',
+        backgroundUrl: '/assets/images/therapists_trio_1783451898546.jpg',
         dialogue: [
           { speakerId: 'calm', text: 'Dobry wybór. Profesjonalizm i spokój to klucz do zrównoważonego rozwoju mózgu dziecka.' },
           { speakerId: 'whisper', text: 'Szaaa... Witaj, droga asystentko. Właśnie przygotowujemy kącik wyciszenia sensorycznego. Każdy klocek musi leżeć w swojej przegródce.' },
@@ -102,7 +102,7 @@ export const CHAPTERS: Chapter[] = [
       ch1_minigame_blocks_creative: {
         id: 'ch1_minigame_blocks_creative',
         title: 'Zabawa w układanie klocków',
-        backgroundUrl: '/src/assets/images/teachers_trio_1783451887451.jpg',
+        backgroundUrl: '/assets/images/teachers_trio_1783451887451.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Dzieci patrzą na Ciebie z błyskiem w oku. Pomóż im dopasować i ułożyć niesymetryczne klocki w pełną wyobraźni konstrukcję!' }
         ],
@@ -113,7 +113,7 @@ export const CHAPTERS: Chapter[] = [
       ch1_minigame_blocks_orderly: {
         id: 'ch1_minigame_blocks_orderly',
         title: 'Terapeutyczne Sortowanie',
-        backgroundUrl: '/src/assets/images/therapists_trio_1783451898546.jpg',
+        backgroundUrl: '/assets/images/therapists_trio_1783451898546.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Sala jest cicha. Pomóż dzieciom ułożyć geometryczne klocki w perfekcyjnie dopasowane przegródki kolorystyczne!' }
         ],
@@ -124,7 +124,7 @@ export const CHAPTERS: Chapter[] = [
       ch1_end: {
         id: 'ch1_end',
         title: 'Koniec pierwszego dnia',
-        backgroundUrl: '/src/assets/images/game_cover_1783451874065.jpg',
+        backgroundUrl: '/assets/images/game_cover_1783451874065.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Pierwszy dzień dobiega końca. Rodzice odbierają dzieci, a w salach gaśnie światło.' },
           { speakerId: 'system', text: 'Gdy zbierasz swoje rzeczy, zauważasz małego, kolorowego i świecącego duszka przelatującego przez korytarz...' },
@@ -152,7 +152,7 @@ export const CHAPTERS: Chapter[] = [
       ch2_intro: {
         id: 'ch2_intro',
         title: 'Poranny kryzys malarski',
-        backgroundUrl: '/src/assets/images/kindergarten_garden_1783451914603.jpg',
+        backgroundUrl: '/assets/images/kindergarten_garden_1783451914603.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Drugi dzień rozpoczyna się od głośnej debaty w korytarzu przedszkola.' },
           { speakerId: 'basia', text: 'Mural na całą ścianę! Dzieci chcą namalować tęczę, zwierzęta i Koloryduszkowa! To rozwinie ich ekspresję emocjonalną!' },
@@ -181,7 +181,7 @@ export const CHAPTERS: Chapter[] = [
       ch2_mural_creative_scene: {
         id: 'ch2_mural_creative_scene',
         title: 'Wielkie Malowanie Muralu',
-        backgroundUrl: '/src/assets/images/teachers_trio_1783451887451.jpg',
+        backgroundUrl: '/assets/images/teachers_trio_1783451887451.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Dzieci biegają z pędzlami, a Pani Basia rzuca kolorowymi iskrami radości! Pomóż im pokolorować mural duszka w zwariowane barwy!' }
         ],
@@ -192,7 +192,7 @@ export const CHAPTERS: Chapter[] = [
       ch2_mural_orderly_scene: {
         id: 'ch2_mural_orderly_scene',
         title: 'Symetryczny Wzór Sensoryczny',
-        backgroundUrl: '/src/assets/images/therapists_trio_1783451898546.jpg',
+        backgroundUrl: '/assets/images/therapists_trio_1783451898546.jpg',
         dialogue: [
           { speakerId: 'system', text: 'W ciszy i pod okiem Pani Whisper dzieci precyzyjnie nanoszą geometryczne, stonowane kolory. Wypełnij ten minimalistyczny wzór!' }
         ],
@@ -203,7 +203,7 @@ export const CHAPTERS: Chapter[] = [
       ch2_mural_done: {
         id: 'ch2_mural_done',
         title: 'Mural ukończony!',
-        backgroundUrl: '/src/assets/images/teachers_trio_1783451887451.jpg',
+        backgroundUrl: '/assets/images/teachers_trio_1783451887451.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Ściana wygląda imponująco! Koloryduszek na muralu wydaje się niemal pulsować własnym życiem.' },
           { speakerId: 'whisper', text: 'Cóż... To było bardzo... intensywne. Muszę teraz przeprowadzić z dziećmi sesję medytacyjną, aby obniżyć tętno.' },
@@ -229,7 +229,7 @@ export const CHAPTERS: Chapter[] = [
       ch2_dance_game: {
         id: 'ch2_dance_game',
         title: 'Taniec Kolorów',
-        backgroundUrl: '/src/assets/images/kindergarten_garden_1783451914603.jpg',
+        backgroundUrl: '/assets/images/kindergarten_garden_1783451914603.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Zaczyna grać energetyczna muzyka! Pomóż dzieciom skakać i tańczyć w odpowiednim rytmie w tej zabawie ruchowej!' }
         ],
@@ -240,7 +240,7 @@ export const CHAPTERS: Chapter[] = [
       ch2_meditate_scene: {
         id: 'ch2_meditate_scene',
         title: 'Kojąca Sesja Rytmiczna',
-        backgroundUrl: '/src/assets/images/therapists_trio_1783451898546.jpg',
+        backgroundUrl: '/assets/images/therapists_trio_1783451898546.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Pani Whisper uderza w tybetańską misę. Skoncentruj się i pomóż dzieciom zsynchronizować oddech w rytmie misy!' }
         ],
@@ -251,7 +251,7 @@ export const CHAPTERS: Chapter[] = [
       ch2_end: {
         id: 'ch2_end',
         title: 'Cień na korytarzu',
-        backgroundUrl: '/src/assets/images/game_cover_1783451874065.jpg',
+        backgroundUrl: '/assets/images/game_cover_1783451874065.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Po zajęciach zauważasz, że Pani Harmony nerwowo rozmawia przez telefon szeptem w kącie szatni.' },
           { speakerId: 'harmony', text: '...tak, asystentka zaczyna węszyć. Jeśli odkryje nasz Tajny Pokój za szafką numer 7, cały plan uciszenia przedszkola runie...' },
@@ -278,7 +278,7 @@ export const CHAPTERS: Chapter[] = [
       ch3_intro: {
         id: 'ch3_intro',
         title: 'Szatnia o zmierzchu drzemki',
-        backgroundUrl: '/src/assets/images/kindergarten_garden_1783451914603.jpg',
+        backgroundUrl: '/assets/images/kindergarten_garden_1783451914603.jpg',
         dialogue: [
           { speakerId: 'system', text: 'W całym przedszkolu panuje cisza. Dzieci śpią w sali obok. Zakradasz się do opuszczonej szatni.' },
           { speakerId: 'player', text: 'Oto szafka numer 7. Należy do Pani Calm. Jest zamknięta na skomplikowany, cyfrowy zamek szyfrowy.' },
@@ -292,7 +292,7 @@ export const CHAPTERS: Chapter[] = [
       ch3_secret_room_entered: {
         id: 'ch3_secret_room_entered',
         title: 'Wnętrze Tajnego Pokoju',
-        backgroundUrl: '/src/assets/images/secret_room_1783451926713.jpg',
+        backgroundUrl: '/assets/images/secret_room_1783451926713.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Klik! Szafka odsuwa się z cichym szumem, odsłaniając wejście do podziemnego schronu.' },
           { speakerId: 'player', text: 'Niewiarygodne... To wygląda jak centrum dowodzenia! Ekrany, plany przedszkola, tajne teczki.' },
@@ -321,7 +321,7 @@ export const CHAPTERS: Chapter[] = [
       ch3_escape_teachers: {
         id: 'ch3_escape_teachers',
         title: 'Ucieczka ze Złotym Zeszytem',
-        backgroundUrl: '/src/assets/images/secret_room_1783451926713.jpg',
+        backgroundUrl: '/assets/images/secret_room_1783451926713.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Chowasz ciężki, ozdobiony brokatem zeszyt do plecaka. Nagle na ekranach dowodzenia zapala się czerwone światło!' },
           { speakerId: 'system', text: 'Słychać kroki na schodach! Ktoś schodzi na dół!' },
@@ -334,7 +334,7 @@ export const CHAPTERS: Chapter[] = [
       ch3_escape_therapists: {
         id: 'ch3_escape_therapists',
         title: 'Zabezpieczanie Planów Generatora',
-        backgroundUrl: '/src/assets/images/secret_room_1783451926713.jpg',
+        backgroundUrl: '/assets/images/secret_room_1783451926713.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Zgrywasz plany techniczne na pendrive. Wyglądają niesamowicie precyzyjnie. Nagle system bezpieczeństwa wykrywa pobieranie!' },
           { speakerId: 'system', text: 'Syrena alarmowa zaczyna cicho wyć. Drzwi automatyczne zaczynają się zamykać!' },
@@ -347,7 +347,7 @@ export const CHAPTERS: Chapter[] = [
       ch3_end: {
         id: 'ch3_end',
         title: 'Bezpieczny odwrót',
-        backgroundUrl: '/src/assets/images/kindergarten_garden_1783451914603.jpg',
+        backgroundUrl: '/assets/images/kindergarten_garden_1783451914603.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Z hukem zatrzaskujesz klapę i lądujesz na miękkim trawniku w ogrodzie przedszkola.' },
           { speakerId: 'player', text: 'Uff... To było niesamowicie blisko. Moje serce bije jak szalone.' },
@@ -375,7 +375,7 @@ export const CHAPTERS: Chapter[] = [
       ch4_intro: {
         id: 'ch4_intro',
         title: 'Konfrontacja w tajemnicy',
-        backgroundUrl: '/src/assets/images/teachers_trio_1783451887451.jpg',
+        backgroundUrl: '/assets/images/teachers_trio_1783451887451.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Rano podchodzisz do liderów obu frakcji, dając im do zrozumienia, że znasz prawdę.' },
           { speakerId: 'basia', text: 'Znalazłaś nasz zeszyt?! O niebiosa, dziękuję! Terapeutki chcą zamontować "Kapsuły Ciszy" w klasach! Musimy zbudować wielki, kolorowy Fort Wolności w ogrodzie, by dzieci miały bezpieczny azyl!' },
@@ -403,7 +403,7 @@ export const CHAPTERS: Chapter[] = [
       ch4_build_fort_game: {
         id: 'ch4_build_fort_game',
         title: 'Budowanie Fortu Wolności',
-        backgroundUrl: '/src/assets/images/kindergarten_garden_1783451914603.jpg',
+        backgroundUrl: '/assets/images/kindergarten_garden_1783451914603.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Pani Basia i Pani Hania przynoszą materace, krzesła, poduszki i kartony. Pomóż dzieciom ułożyć stabilną wieżę z poduszek i krzeseł!' }
         ],
@@ -414,7 +414,7 @@ export const CHAPTERS: Chapter[] = [
       ch4_calibrate_emitter_game: {
         id: 'ch4_calibrate_emitter_game',
         title: 'Ustawianie Emitera Harmonii',
-        backgroundUrl: '/src/assets/images/secret_room_1783451926713.jpg',
+        backgroundUrl: '/assets/images/secret_room_1783451926713.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Pani Calm i Pani Harmony montują lśniące, geometryczne kryształy na dachu. Pomóż im dopasować elementy obwodu, by emiter działał idealnie!' }
         ],
@@ -425,7 +425,7 @@ export const CHAPTERS: Chapter[] = [
       ch4_end: {
         id: 'ch4_end',
         title: 'Przed wielkim starciem',
-        backgroundUrl: '/src/assets/images/game_cover_1783451874065.jpg',
+        backgroundUrl: '/assets/images/game_cover_1783451874065.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Wszystko jest przygotowane. Jutro odbędzie się coroczny "Dzień Kolorów" – wielkie święto, na którym rozstrzygnie się los przedszkola.' },
           { speakerId: 'system', text: 'Koloryduszek krąży nad budynkiem. Jego barwa zależy od Twoich dotychczasowych wyborów.' },
@@ -452,7 +452,7 @@ export const CHAPTERS: Chapter[] = [
       ch5_intro: {
         id: 'ch5_intro',
         title: 'Dzień Kolorów w Ogrodzie',
-        backgroundUrl: '/src/assets/images/kindergarten_garden_1783451914603.jpg',
+        backgroundUrl: '/assets/images/kindergarten_garden_1783451914603.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Słońce świeci wysoko. Ogród przedszkola jest przystrojony we wszystkie barwy tęczy. Rodzice zebrali się na widowni.' },
           { speakerId: 'basia', text: 'To nasza chwila! Dzieci, rozpoczynamy Wielki Taniec Ekspresji! Niech wasz śmiech rozbije wszelkie klatki!' },
@@ -489,7 +489,7 @@ export const CHAPTERS: Chapter[] = [
       ch5_final_dance_game: {
         id: 'ch5_final_dance_game',
         title: 'Teczowy Taniec Wolności',
-        backgroundUrl: '/src/assets/images/teachers_trio_1783451887451.jpg',
+        backgroundUrl: '/assets/images/teachers_trio_1783451887451.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Muzyka osiąga apogeum! Pomóż dzieciom tańczyć, skakać i biegać, by stworzyć najgłośniejszą i najbardziej radosną falę energii w historii!' }
         ],
@@ -500,7 +500,7 @@ export const CHAPTERS: Chapter[] = [
       ch5_final_breathing_game: {
         id: 'ch5_final_breathing_game',
         title: 'Idealny Rytm Ciszy',
-        backgroundUrl: '/src/assets/images/therapists_trio_1783451898546.jpg',
+        backgroundUrl: '/assets/images/therapists_trio_1783451898546.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Emiter działa z pełną mocą, otaczając przedszkole bąblem idealnego spokoju. Pomóż dzieciom zsynchronizować ruchy w idealnie symetrycznym rytmie.' }
         ],
@@ -511,7 +511,7 @@ export const CHAPTERS: Chapter[] = [
       ch5_final_harmony_game: {
         id: 'ch5_final_harmony_game',
         title: 'Złoty Balans Koloryduszka',
-        backgroundUrl: '/src/assets/images/game_cover_1783451874065.jpg',
+        backgroundUrl: '/assets/images/game_cover_1783451874065.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Łączysz ogień i wodę! Pomóż dzieciom tańczyć kreatywnie, a potem wyciszać się w rytm duszka, tworząc idealny balans wyobraźni i spokoju!' }
         ],
@@ -522,7 +522,7 @@ export const CHAPTERS: Chapter[] = [
       ch5_ending_freedom: {
         id: 'ch5_ending_freedom',
         title: 'Epilog: Królestwo Wyobraźni',
-        backgroundUrl: '/src/assets/images/teachers_trio_1783451887451.jpg',
+        backgroundUrl: '/assets/images/teachers_trio_1783451887451.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Emiter Terapeutek przeciąża się i eksploduje chmurą kolorowego brokatu! Pani Calm upuszcza swoją podkładkę, patrząc z niedowierzaniem na tańczących rodziców i uradowane dzieci.' },
           { speakerId: 'basia', text: 'Udało się! Wolność, sztuka i głośny śmiech wygrały! Przedszkole na zawsze pozostanie krainą nieskrępowanej wyobraźni!' },
@@ -544,7 +544,7 @@ export const CHAPTERS: Chapter[] = [
       ch5_ending_order: {
         id: 'ch5_ending_order',
         title: 'Epilog: Oaza Spokoju',
-        backgroundUrl: '/src/assets/images/therapists_trio_1783451898546.jpg',
+        backgroundUrl: '/assets/images/therapists_trio_1783451898546.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Emiter emituje łagodną, niesłyszalną falę harmonii. Dzieci siadają na dywanie z uśmiechami, idealnie skupione, budując piękne geometryczne mozaiki. Pani Basia odkłada pędzel i ze zdumieniem zauważa, jak bardzo uspokoiły się jej własne myśli.' },
           { speakerId: 'calm', text: 'Cel osiągnięty. Harmonia, ład i stymulacja strefowa przyniosły owoce. Koniec ze stresem i przebodźcowaniem.' },
@@ -566,7 +566,7 @@ export const CHAPTERS: Chapter[] = [
       ch5_ending_neutral: {
         id: 'ch5_ending_neutral',
         title: 'Epilog: Złota Harmonia',
-        backgroundUrl: '/src/assets/images/game_cover_1783451874065.jpg',
+        backgroundUrl: '/assets/images/game_cover_1783451874065.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Koloryduszek rozbłyska oślepiającym, złotym światłem, łącząc energię obu stron. Emiter Terapeutek zaczyna grać piękną, melodyjną muzykę do tańca Nauczycielek, a po szalonych harcach dzieci kładą się na kolorowych materacach, idealnie zrelaksowane.' },
           { speakerId: 'basia', text: 'To niesamowite... Nasza ekspresja połączyła się z waszym spokojem. To jest to, czego dzieci naprawdę potrzebowały!' },
@@ -597,7 +597,7 @@ export const CHAPTERS: Chapter[] = [
       ch6_intro: {
         id: 'ch6_intro',
         title: 'Witamy Panią Amelię',
-        backgroundUrl: '/src/assets/images/kindergarten_garden_1783451914603.jpg',
+        backgroundUrl: '/assets/images/kindergarten_garden_1783451914603.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Minęło kilka tygodni od burzliwego finału Dnia Kolorów. Życie w przedszkolu toczy się nowym rytmem.' },
           { speakerId: 'basia', text: 'Asystentko! Chodź szybko, musisz kogoś poznać! To jest nasza nowa nauczycielka, Pani Amelia!' },
@@ -627,7 +627,7 @@ export const CHAPTERS: Chapter[] = [
       ch6_mission: {
         id: 'ch6_mission',
         title: 'Wspólna Misja Edukacyjna',
-        backgroundUrl: '/src/assets/images/teachers_trio_1783451887451.jpg',
+        backgroundUrl: '/assets/images/teachers_trio_1783451887451.jpg',
         dialogue: [
           { speakerId: 'amelia', text: 'Dzieci chcą dziś zbudować wielką, wspólną konstrukcję edukacyjną w sali maluchów! Czy pomożesz mi to zorganizować?' },
           { speakerId: 'system', text: 'Amelia z zaangażowaniem przygotowuje pudła z materiałami, pomagając dzieciom na każdym kroku.' }
@@ -639,7 +639,7 @@ export const CHAPTERS: Chapter[] = [
       ch6_end: {
         id: 'ch6_end',
         title: 'Ciepły wieczór w przedszkolu',
-        backgroundUrl: '/src/assets/images/game_cover_1783451874065.jpg',
+        backgroundUrl: '/assets/images/game_cover_1783451874065.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Dzień dobiega końca. Ostatnie dziecko opuściło budynek. Rozmawiasz z Amelią przy herbacie.' },
           { speakerId: 'player', text: 'Świetnie sobie poradziłaś, Amelio. Dzieci cię uwielbiają.' },
@@ -669,7 +669,7 @@ export const CHAPTERS: Chapter[] = [
       ch7_intro: {
         id: 'ch7_intro',
         title: 'Podejrzany Basen',
-        backgroundUrl: '/src/assets/images/kindergarten_garden_1783451914603.jpg',
+        backgroundUrl: '/assets/images/kindergarten_garden_1783451914603.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Zajęcia na basenie przedszkolnym odbywają się pod czujnym okiem instruktorek. Ich nerwowe spojrzenia budzą jednak Twój niepokój.' },
           { speakerId: 'system', text: 'Gdy przechodzisz obok szatni basenowej, jedna z instruktorek łapie Cię za ramię i szepcze do ucha:' },
@@ -690,7 +690,7 @@ export const CHAPTERS: Chapter[] = [
       ch7_descent: {
         id: 'ch7_descent',
         title: 'Zejście w Ciemność',
-        backgroundUrl: '/src/assets/images/secret_room_1783451926713.jpg',
+        backgroundUrl: '/assets/images/secret_room_1783451926713.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Schodzisz do wilgotnej maszynowni pod basenem. Ciężkie metalowe rury huczą od płynącej wody.' },
           { speakerId: 'system', text: 'Na środku podłogi zauważasz zardzewiały właz zabezpieczony starym, mechanicznym zamkiem hydraulicznym.' },
@@ -703,7 +703,7 @@ export const CHAPTERS: Chapter[] = [
       ch7_tunnels: {
         id: 'ch7_tunnels',
         title: 'Sieć starych tuneli',
-        backgroundUrl: '/src/assets/images/pool_tunnels_1783531581796.jpg',
+        backgroundUrl: '/assets/images/pool_tunnels_1783531581796.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Właz otwiera się z głośnym trzaskiem. Schodzisz po drabinie w dół, trafiając do rozległej sieci starych, podziemnych korytarzy.' },
           { speakerId: 'system', text: 'Wilgoć skrapla się na ścianach. Docierasz do ukrytego pomieszczenia ze stołem pełnym dokumentów.' },
@@ -732,7 +732,7 @@ export const CHAPTERS: Chapter[] = [
       ch8_intro: {
         id: 'ch8_intro',
         title: 'Ukryte Archiwum',
-        backgroundUrl: '/src/assets/images/pool_tunnels_1783531581796.jpg',
+        backgroundUrl: '/assets/images/pool_tunnels_1783531581796.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Gdy studiujesz mapę w tunelach, nagle słyszysz kroki na schodach. Odwracasz się z lękiem, ale to tylko... Pani Amelia!' },
           { speakerId: 'amelia', text: 'Ciii, asystentko, to ja! Wiedziałam, że tu zejdziesz. Chodź za mną, pokazać ci coś jeszcze ważniejszego.' },
@@ -753,7 +753,7 @@ export const CHAPTERS: Chapter[] = [
       ch8_archive: {
         id: 'ch8_archive',
         title: 'Zapiski z Cienia',
-        backgroundUrl: '/src/assets/images/secret_room_1783451926713.jpg',
+        backgroundUrl: '/assets/images/secret_room_1783451926713.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Pomieszczenie wypełniają rzędy metalowych szaf z poufnymi teczkami personalnymi oraz planami operacyjnymi Zakonu.' },
           { speakerId: 'amelia', text: 'Spójrz na te dokumenty finansowe i rozkazy. Wszystkie mają ten sam podpis na dole.' },
@@ -768,7 +768,7 @@ export const CHAPTERS: Chapter[] = [
       ch8_conspiracy: {
         id: 'ch8_conspiracy',
         title: 'Uświadomienie zagrożenia',
-        backgroundUrl: '/src/assets/images/teachers_trio_1783451887451.jpg',
+        backgroundUrl: '/assets/images/teachers_trio_1783451887451.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Wracacie na górę i zwołujecie tajną naradę w pokoju nauczycielskim z Panią Basią i resztą zespołu.' },
           { speakerId: 'basia', text: 'To niesamowite... Myślałyśmy, że walka skończyła się po Dniu Kolorów! A to dopiero wierzchołek góry lodowej!' },
@@ -795,7 +795,7 @@ export const CHAPTERS: Chapter[] = [
       ch9_intro: {
         id: 'ch9_intro',
         title: 'Zniknięcie Amelii',
-        backgroundUrl: '/src/assets/images/kindergarten_garden_1783451914603.jpg',
+        backgroundUrl: '/assets/images/kindergarten_garden_1783451914603.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Kilka dni później Pani Amelia nie pojawia się w pracy. Jej telefon nie odpowiada, a jej rzeczy zniknęły z szafki.' },
           { speakerId: 'basia', text: 'Asystentko! Coś jest bardzo nie tak. Znalazłam ślady włamania do systemu kamer pod basenem. Ktoś usunął nagrania z nocy!' },
@@ -815,7 +815,7 @@ export const CHAPTERS: Chapter[] = [
       ch9_sabotage: {
         id: 'ch9_sabotage',
         title: 'Prawda na ekranie',
-        backgroundUrl: '/src/assets/images/secret_room_1783451926713.jpg',
+        backgroundUrl: '/assets/images/secret_room_1783451926713.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Na odzyskanym nagraniu widzisz postać z latarką w tunelach pod basenem. To Amelia!' },
           { speakerId: 'system', text: 'Otwierała tajne zamki zabezpieczające, rozmawiała przez ukryte radio i celowo sabotowała instalacje wentylacyjne nauczycielek.' },
@@ -836,7 +836,7 @@ export const CHAPTERS: Chapter[] = [
       ch9_encounter: {
         id: 'ch9_encounter',
         title: 'Ostateczne spotkanie z Amelią',
-        backgroundUrl: '/src/assets/images/pool_tunnels_1783531581796.jpg',
+        backgroundUrl: '/assets/images/pool_tunnels_1783531581796.jpg',
         dialogue: [
           { speakerId: 'system', text: 'W głębi tuneli, przy pulsującym czerwonym terminalu, dostrzegasz Panią Amelię w ciemnym płaszczu.' },
           { speakerId: 'player', text: 'Stój, Amelio! Wiemy wszystko. Wiemy, że pracujesz dla Kierownika!' },
@@ -857,7 +857,7 @@ export const CHAPTERS: Chapter[] = [
       ch9_boss: {
         id: 'ch9_boss',
         title: 'Pojedynek z Panią Amelią',
-        backgroundUrl: '/src/assets/images/pool_tunnels_1783531581796.jpg',
+        backgroundUrl: '/assets/images/pool_tunnels_1783531581796.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Amelia uśmiecha się smutno i wyciąga swój kamerton wyciszenia. Czas na ostateczną batalię diamentów!' }
         ],
@@ -868,7 +868,7 @@ export const CHAPTERS: Chapter[] = [
       ch9_defeat: {
         id: 'ch9_defeat',
         title: 'Ucieczka Amelii',
-        backgroundUrl: '/src/assets/images/pool_tunnels_1783531581796.jpg',
+        backgroundUrl: '/assets/images/pool_tunnels_1783531581796.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Dzięki Twojemu zapałowi i precyzyjnym połączeniom diamentów, urządzenie Amelii przegrzewa się i sypie iskrami!' },
           { speakerId: 'amelia', text: 'Ałć! Jesteś silniejsza, niż sądziłam... Ale to niczego nie zmieni!' },
@@ -896,7 +896,7 @@ export const CHAPTERS: Chapter[] = [
       ch10_intro: {
         id: 'ch10_intro',
         title: 'Serce Syndykatu',
-        backgroundUrl: '/src/assets/images/control_center_1783531596202.jpg',
+        backgroundUrl: '/assets/images/control_center_1783531596202.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Winda zjeżdża głęboko pod ziemię przez kilkanaście sekund. Drzwi otwierają się z sykiem sprężonego powietrza.' },
           { speakerId: 'system', text: 'Wkraczasz do gigantycznego, mrocznego centrum dowodzenia naszpikowanego technologią i monitorami.' },
@@ -917,7 +917,7 @@ export const CHAPTERS: Chapter[] = [
       ch10_command_center: {
         id: 'ch10_command_center',
         title: 'Spotkanie z Łysym Kierownikiem',
-        backgroundUrl: '/src/assets/images/control_center_1783531596202.jpg',
+        backgroundUrl: '/assets/images/control_center_1783531596202.jpg',
         dialogue: [
           { speakerId: 'system', text: 'W centralnej części pomieszczenia, w wielkim skórzanym fotelu, siedzi postać ubrana w elegancki garnitur.' },
           { speakerId: 'system', text: 'Fotel obraca się powoli. Mężczyzna jest całkowicie łysy, a jego zimne oczy patrzą na Ciebie z absolutnym spokojem.' },
@@ -940,7 +940,7 @@ export const CHAPTERS: Chapter[] = [
       ch10_boss: {
         id: 'ch10_boss',
         title: 'Starcie z Łysym Kierownikiem',
-        backgroundUrl: '/src/assets/images/control_center_1783531596202.jpg',
+        backgroundUrl: '/assets/images/control_center_1783531596202.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Kierownik podnosi dłoń i aktywuje kalkulator kosztów, tasując całą planszę diamentów. Pokaż mu siłę dziecięcej wolności!' }
         ],
@@ -951,7 +951,7 @@ export const CHAPTERS: Chapter[] = [
       ch10_ending: {
         id: 'ch10_ending',
         title: 'Koniec Pierwszej Kampanii',
-        backgroundUrl: '/src/assets/images/control_center_1783531596202.jpg',
+        backgroundUrl: '/assets/images/control_center_1783531596202.jpg',
         dialogue: [
           { speakerId: 'system', text: ' plansza eksploduje kaskadą dopasowań diamentów, przeciążając terminale na biurku Kierownika!' },
           { speakerId: 'lysy_kierownik', text: 'Heh... Imponujące. Masz talent, asystentko. Ale spójrz na ekrany.' },
@@ -983,7 +983,7 @@ export const CHAPTERS: Chapter[] = [
       ch11_intro: {
         id: 'ch11_intro',
         title: 'Powrót skruszonej Amelii',
-        backgroundUrl: '/src/assets/images/kindergarten_garden_1783451914603.jpg',
+        backgroundUrl: '/assets/images/kindergarten_garden_1783451914603.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Kolejny dzień w Tęczowym Zakątku. Na podwórku przedszkola niespodziewanie pojawia się Pani Amelia.' },
           { speakerId: 'amelia', text: 'Proszę, wysłuchajcie mnie! Wiem, co zrobiłam... Sabotowałam waszą pracę, ale Kierownik mnie oszukał. Chcę naprawić swoje błędy i pomóc wam uratować to miejsce.' },
@@ -1012,7 +1012,7 @@ export const CHAPTERS: Chapter[] = [
       ch11_english_teacher_arrival: {
         id: 'ch11_english_teacher_arrival',
         title: 'Nowa siła: Nauczycielka Angielskiego',
-        backgroundUrl: '/src/assets/images/kindergarten_garden_1783451914603.jpg',
+        backgroundUrl: '/assets/images/kindergarten_garden_1783451914603.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Nagle ze schodów zbiega nowa nauczycielka języka angielskiego, Pani Milena, ściskając w ręku kolorowe fiszki.' },
           { speakerId: 'milena', text: 'Good morning, everyone! Przepraszam, że dopiero teraz... Przez wiele miesięcy paraliżował mnie strach przed terapeutkami i ich wpływami u Kierownika.' },
@@ -1033,7 +1033,7 @@ export const CHAPTERS: Chapter[] = [
       ch11_minigame: {
         id: 'ch11_minigame',
         title: 'Śpiewający Angielski',
-        backgroundUrl: '/src/assets/images/kindergarten_garden_1783451914603.jpg',
+        backgroundUrl: '/assets/images/kindergarten_garden_1783451914603.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Milena rozpoczyna wesołą piosenkę. Pomóż dzieciom ułożyć puzzle językowe i stworzyć piękne, kolorowe rysunki!' }
         ],
@@ -1044,7 +1044,7 @@ export const CHAPTERS: Chapter[] = [
       ch11_end: {
         id: 'ch11_end',
         title: 'Nowa nadzieja',
-        backgroundUrl: '/src/assets/images/kindergarten_garden_1783451914603.jpg',
+        backgroundUrl: '/assets/images/kindergarten_garden_1783451914603.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Dzięki udanej lekcji z Panią Mileną dzieci śpiewają i tańczą po angielsku, całkowicie ignorując nakazy ciszy terapeutek.' },
           { speakerId: 'milena', text: 'We did it! To było wspaniałe! Terapeutki próbowały nas uciszyć, ale energia dzieciaków była niesamowita.' },
@@ -1071,7 +1071,7 @@ export const CHAPTERS: Chapter[] = [
       ch12_intro: {
         id: 'ch12_intro',
         title: 'W gabinecie Dyrektorki Heleny',
-        backgroundUrl: '/src/assets/images/director_portrait_1783533268563.jpg',
+        backgroundUrl: '/assets/images/director_portrait_1783533268563.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Wkraczasz do tradycyjnego, ciepłego gabinetu dyrekcji. Za biurkiem siedzi starsza, siwa kobieta o łagodnym spojrzeniu.' },
           { speakerId: 'dyrektorka', text: 'Dzień dobry, moje dziecko. Jestem Dyrektorka Helena. Tak bardzo martwię się o nasze przedszkole... Codziennie otrzymuję stosy raportów od terapeutek.' },
@@ -1092,7 +1092,7 @@ export const CHAPTERS: Chapter[] = [
       ch12_minigame: {
         id: 'ch12_minigame',
         title: 'Poszukiwanie dowodów prawdy',
-        backgroundUrl: '/src/assets/images/director_portrait_1783533268563.jpg',
+        backgroundUrl: '/assets/images/director_portrait_1783533268563.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Przeszukaj szafy i szuflady, by odnaleźć sfałszowane przez terapeutki protokoły i prawdziwe zapiski z postępów maluchów!' }
         ],
@@ -1103,7 +1103,7 @@ export const CHAPTERS: Chapter[] = [
       ch12_confront: {
         id: 'ch12_confront',
         title: 'Oczy szeroko zamknięte',
-        backgroundUrl: '/src/assets/images/director_portrait_1783533268563.jpg',
+        backgroundUrl: '/assets/images/director_portrait_1783533268563.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Kładziesz na biurku dyrektorki odnalezione, ukryte dokumenty terapeutyczne wykazujące celowe zaniżanie ocen dzieci.' },
           { speakerId: 'dyrektorka', text: 'O mój Boże... Te wykresy są sfałszowane. One celowo przedstawiały radosne zabawy ruchowe jako akty agresji!' },
@@ -1131,7 +1131,7 @@ export const CHAPTERS: Chapter[] = [
       ch13_intro: {
         id: 'ch13_intro',
         title: 'Zapach drożdżówek w kuchni',
-        backgroundUrl: '/src/assets/images/kitchen_bg_1783533322488.jpg',
+        backgroundUrl: '/assets/images/kitchen_bg_1783533322488.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Wchodzisz do przestronnej, lśniącej kuchni przedszkolnej. W powietrzu unosi się cudowny aromat pieczonych drożdżówek.' },
           { speakerId: 'kucharz', text: 'O, witaj asystentko! Jestem Janek, kucharz. Sam nie wiem, co robić... Terapeutki mówią, że moje słodkie bułeczki mają za dużo cukru i powonieniem serwować dzieciom tylko gorzkie kleiki sensoryczne.' },
@@ -1160,7 +1160,7 @@ export const CHAPTERS: Chapter[] = [
       ch13_minigame_creative: {
         id: 'ch13_minigame_creative',
         title: 'Wypiekanie Kreatywnych Słodkości',
-        backgroundUrl: '/src/assets/images/kitchen_bg_1783533322488.jpg',
+        backgroundUrl: '/assets/images/kitchen_bg_1783533322488.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Pora ozdobić pyszne wypieki! Użyj kolorowego lukru, aby stworzyć najbardziej fantazyjne bułeczki w historii przedszkola!' }
         ],
@@ -1171,7 +1171,7 @@ export const CHAPTERS: Chapter[] = [
       ch13_minigame_orderly: {
         id: 'ch13_minigame_orderly',
         title: 'Pieczenie Dietetycznych Ciastek',
-        backgroundUrl: '/src/assets/images/kitchen_bg_1783533322488.jpg',
+        backgroundUrl: '/assets/images/kitchen_bg_1783533322488.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Układaj ciasteczka na blachach w idealnie równoległych rzędach, zachowując pełną symetrię!' }
         ],
@@ -1182,7 +1182,7 @@ export const CHAPTERS: Chapter[] = [
       ch13_victory: {
         id: 'ch13_victory',
         title: 'Zaufanie zdobyte',
-        backgroundUrl: '/src/assets/images/kitchen_bg_1783533322488.jpg',
+        backgroundUrl: '/assets/images/kitchen_bg_1783533322488.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Dzieci z zachwytem zjadają pyszny podwieczorek, a na ich twarzach goszczą szerokie uśmiechy.' },
           { speakerId: 'kucharz', text: 'To było niesamowite! Widząc radość tych dzieciaków, zrozumiałem, że to wy macie rację. Od teraz możecie na mnie liczyć!' },
@@ -1209,7 +1209,7 @@ export const CHAPTERS: Chapter[] = [
       ch14_intro: {
         id: 'ch14_intro',
         title: 'Strach w kuluarach',
-        backgroundUrl: '/src/assets/images/secret_room_1783451926713.jpg',
+        backgroundUrl: '/assets/images/secret_room_1783451926713.jpg',
         dialogue: [
           { speakerId: 'system', text: 'W bocznej kanciapie spotykasz zapłakaną pomoc nauczyciela, trzymającą drżący telefon.' },
           { speakerId: 'system', text: 'Pokazuje Ci ekran z anonimowymi groźbami: „Wiemy, co mówicie w pokoju socjalnym. Jeśli poprzecie nauczycielki, dyrekcja dowie się o waszych spóźnieniach.”' },
@@ -1229,7 +1229,7 @@ export const CHAPTERS: Chapter[] = [
       ch14_minigame: {
         id: 'ch14_minigame',
         title: 'Łamanie kodu nadajnika',
-        backgroundUrl: '/src/assets/images/secret_room_1783451926713.jpg',
+        backgroundUrl: '/assets/images/secret_room_1783451926713.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Połącz rozproszone przekaźniki i odkoduj zakłócony sygnał, aby poznać współrzędne urządzenia wysyłającego pogróżki!' }
         ],
@@ -1240,7 +1240,7 @@ export const CHAPTERS: Chapter[] = [
       ch14_reveal: {
         id: 'ch14_reveal',
         title: 'Zdemaskowane intrygi',
-        backgroundUrl: '/src/assets/images/secret_room_1783451926713.jpg',
+        backgroundUrl: '/assets/images/secret_room_1783451926713.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Sygnał zostaje namierzony! Pochodzi z tajnego nadajnika ukrytego w klasowym wentylatorze.' },
           { speakerId: 'player', text: 'Terapeutki używały lokalnego routera do przechwytywania rozmów i wysyłania automatycznych SMS-ów szantażujących.' },
@@ -1267,7 +1267,7 @@ export const CHAPTERS: Chapter[] = [
       ch15_intro: {
         id: 'ch15_intro',
         title: 'Sieć pluskiew',
-        backgroundUrl: '/src/assets/images/control_center_1783531596202.jpg',
+        backgroundUrl: '/assets/images/control_center_1783531596202.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Podczas tajnego zebrania w piwnicy nagle słyszycie dziwny pisk wysokiej częstotliwości.' },
           { speakerId: 'hania', text: 'Słyszycie to? To brzmi jak... sprzężenie zwrotne z mikrofonu bezprzewodowego!' },
@@ -1287,7 +1287,7 @@ export const CHAPTERS: Chapter[] = [
       ch15_sweep: {
         id: 'ch15_sweep',
         title: 'Neutralizowanie podsłuchów',
-        backgroundUrl: '/src/assets/images/control_center_1783531596202.jpg',
+        backgroundUrl: '/assets/images/control_center_1783531596202.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Znajdź wszystkie sprytnie ukryte mikrofony i pluskwy schowane za plakatami, pod stołami i w zabawkach!' }
         ],
@@ -1298,7 +1298,7 @@ export const CHAPTERS: Chapter[] = [
       ch15_boss_encounter: {
         id: 'ch15_boss_encounter',
         title: 'Starcie ze Strażniczką Nasłuchu',
-        backgroundUrl: '/src/assets/images/sonia_portrait_1783533307520.jpg',
+        backgroundUrl: '/assets/images/sonia_portrait_1783533307520.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Po zneutralizowaniu ostatniego podsłuchu, nagle z cienia wyłania się tajemnicza postać w ciemnym garniturze z zaawansowanymi słuchawkami.' },
           { speakerId: 'sonia', text: 'Myślałyście, że możecie bezkarnie szeptać w moim przedszkolu? Jestem Sonia, Strażniczka Nasłuchu.' },
@@ -1318,7 +1318,7 @@ export const CHAPTERS: Chapter[] = [
       ch15_boss_game: {
         id: 'ch15_boss_game',
         title: 'Symfonia wolnych głosów',
-        backgroundUrl: '/src/assets/images/sonia_portrait_1783533307520.jpg',
+        backgroundUrl: '/assets/images/sonia_portrait_1783533307520.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Sonia aktywuje paraliżujący generator szumów. Połącz diamenty kreatywności, by przełamać jej barierę!' }
         ],
@@ -1329,7 +1329,7 @@ export const CHAPTERS: Chapter[] = [
       ch15_victory: {
         id: 'ch15_victory',
         title: 'Cisza przed burzą',
-        backgroundUrl: '/src/assets/images/sonia_portrait_1783533307520.jpg',
+        backgroundUrl: '/assets/images/sonia_portrait_1783533307520.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Z potężnym hukiem sprzęt inwigilacyjny Soni przegrzewa się, a ekrany pokrywają się zakłóceniami.' },
           { speakerId: 'sonia', text: 'To... niemożliwe! Moje filtry audio... Moje nagrania zostały skasowane!' },
@@ -1356,7 +1356,7 @@ export const CHAPTERS: Chapter[] = [
       ch16_intro: {
         id: 'ch16_intro',
         title: 'Dobroduszny w-fista',
-        backgroundUrl: '/src/assets/images/gym_bg_1783533335722.jpg',
+        backgroundUrl: '/assets/images/gym_bg_1783533335722.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Wchodzisz do dużej, dobrze oświetlonej sali gimnastycznej. Na środku stoi rosły, wysportowany mężczyzna, rzucając piłką do kosza.' },
           { speakerId: 'robert', text: 'Ach, cześć. Jestem Robert, uczę tu w-f. Widzę od dawna, co te terapeutki robią z dzieciakami... Zabraniają im biegać, skakać, krzyczeć z radości.' },
@@ -1376,7 +1376,7 @@ export const CHAPTERS: Chapter[] = [
       ch16_minigame: {
         id: 'ch16_minigame',
         title: 'Ratowanie dokumentów',
-        backgroundUrl: '/src/assets/images/gym_bg_1783533335722.jpg',
+        backgroundUrl: '/assets/images/gym_bg_1783533335722.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Czas nagli! Przebiegnij przez slalom z pachołków, przeskocz materace i wyciągnij teczki przed ostrzami niszczarki!' }
         ],
@@ -1387,7 +1387,7 @@ export const CHAPTERS: Chapter[] = [
       ch16_victory: {
         id: 'ch16_victory',
         title: 'Zwycięstwo fizyczne i moralne',
-        backgroundUrl: '/src/assets/images/gym_bg_1783533335722.jpg',
+        backgroundUrl: '/assets/images/gym_bg_1783533335722.jpg',
         dialogue: [
           { speakerId: 'system', text: 'W ostatniej chwili wyrywasz nienaruszone teczki z rąk asystentów terapeutek.' },
           { speakerId: 'robert', text: 'Świetny bieg! Masz niesamowitą formę! Cieszę się, że mogłem pomóc. Koniec z moim strachem. Od dziś w-f uczy odwagi i wolności!' },
@@ -1414,7 +1414,7 @@ export const CHAPTERS: Chapter[] = [
       ch17_intro: {
         id: 'ch17_intro',
         title: 'Intryga szyta grubymi nićmi',
-        backgroundUrl: '/src/assets/images/director_portrait_1783533268563.jpg',
+        backgroundUrl: '/assets/images/director_portrait_1783533268563.jpg',
         dialogue: [
           { speakerId: 'system', text: 'W gabinecie dyreccji panuje grobowa atmosfera. Roztrzęsiona Pani Hania stoi obok biurka.' },
           { speakerId: 'dyrektorka', text: 'Asystentko, to straszne... Terapeutki przyniosły mi raport wraz z nagraniem, z którego wynika, że Hania celowo zniszczyła drogi sprzęt sensoryczny w gabinecie.' },
@@ -1434,7 +1434,7 @@ export const CHAPTERS: Chapter[] = [
       ch17_minigame: {
         id: 'ch17_minigame',
         title: 'Analiza dowodów cyfrowych',
-        backgroundUrl: '/src/assets/images/director_portrait_1783533268563.jpg',
+        backgroundUrl: '/assets/images/director_portrait_1783533268563.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Ułóż klatki nagrania w odpowiednim porządku chronologicznym, by ujawnić manipulację czasem i prawdziwego sprawcę!' }
         ],
@@ -1445,7 +1445,7 @@ export const CHAPTERS: Chapter[] = [
       ch17_victory: {
         id: 'ch17_victory',
         title: 'Niewinność dowiedziona',
-        backgroundUrl: '/src/assets/images/director_portrait_1783533268563.jpg',
+        backgroundUrl: '/assets/images/director_portrait_1783533268563.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Ekrany pokazują bezsprzeczny dowód: na oryginalnym nagraniu to Pani Harmony niszczy sprzęt, by potem zmontować wideo z twarzą Hani.' },
           { speakerId: 'dyrektorka', text: 'Och... Haniu, tak bardzo cię przepraszam. Jak mogłam w to uwierzyć?! Moje zaufanie do terapeutek zostało bezpowrotnie zniszczone.' },
@@ -1472,7 +1472,7 @@ export const CHAPTERS: Chapter[] = [
       ch18_intro: {
         id: 'ch18_intro',
         title: 'Podziemne instalacje basenowe',
-        backgroundUrl: '/src/assets/images/pool_tunnels_1783531581796.jpg',
+        backgroundUrl: '/assets/images/pool_tunnels_1783531581796.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Dzięki ocalałym dokumentom schodzisz głęboko pod basen, gdzie huczą wielkie pompy i filtry wody.' },
           { speakerId: 'system', text: 'W ciemnościach dostrzegasz grupę techników przedszkolnych, którzy potajemnie instalują dziwne rury dozujące „gaz uspokajający”.' },
@@ -1501,7 +1501,7 @@ export const CHAPTERS: Chapter[] = [
       ch18_minigame: {
         id: 'ch18_minigame',
         title: 'Demontaż aparatury gazowej',
-        backgroundUrl: '/src/assets/images/pool_tunnels_1783531581796.jpg',
+        backgroundUrl: '/assets/images/pool_tunnels_1783531581796.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Zablokuj zawory dopływowe i zdemontuj nielegalne dysze instalacji gazowej, układając potężną barierę z klocków ochronnych!' }
         ],
@@ -1512,7 +1512,7 @@ export const CHAPTERS: Chapter[] = [
       ch18_victory: {
         id: 'ch18_victory',
         title: 'Sojusz pod basenem',
-        backgroundUrl: '/src/assets/images/pool_tunnels_1783531581796.jpg',
+        backgroundUrl: '/assets/images/pool_tunnels_1783531581796.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Niebezpieczna aparatura zostaje całkowicie rozmontowana. Zawory są zabezpieczone kłódkami.' },
           { speakerId: 'player', text: 'Udało się. Jesteście wolni od ich wpływu, a dzieci są bezpieczne.' },
@@ -1539,7 +1539,7 @@ export const CHAPTERS: Chapter[] = [
       ch19_intro: {
         id: 'ch19_intro',
         title: 'Tajemnica starego pergaminu',
-        backgroundUrl: '/src/assets/images/blueprints_bg_1783533350195.jpg',
+        backgroundUrl: '/assets/images/blueprints_bg_1783533350195.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Pani Amelia wbiega do pokoju nauczycielskiego z wielką, zakurzoną tubą na projekty.' },
           { speakerId: 'amelia', text: 'Spójrzcie, co znalazłam w starej kartotece budowlanej! To pierwotne plany architektoniczne tego budynku z lat 70.' },
@@ -1559,7 +1559,7 @@ export const CHAPTERS: Chapter[] = [
       ch19_minigame: {
         id: 'ch19_minigame',
         title: 'Rekonstrukcja planów budynków',
-        backgroundUrl: '/src/assets/images/blueprints_bg_1783533350195.jpg',
+        backgroundUrl: '/assets/images/blueprints_bg_1783533350195.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Ułóż fragmenty starego planu architektonicznego, aby poznać pełną sieć tajnych korytarzy i drzwi ewakuacyjnych!' }
         ],
@@ -1570,7 +1570,7 @@ export const CHAPTERS: Chapter[] = [
       ch19_victory: {
         id: 'ch19_victory',
         title: 'Mapowanie korytarzy cieni',
-        backgroundUrl: '/src/assets/images/blueprints_bg_1783533350195.jpg',
+        backgroundUrl: '/assets/images/blueprints_bg_1783533350195.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Kawałki mapy łączą się idealnie. Przed Waszymi oczami ukazuje się pełen schemat tajnych przejść syndykatu.' },
           { speakerId: 'player', text: 'Teraz znamy każdy ich krok. Wiemy, gdzie wejść i jak ich zaskoczyć!' },
@@ -1597,7 +1597,7 @@ export const CHAPTERS: Chapter[] = [
       ch20_intro: {
         id: 'ch20_intro',
         title: 'Zjednoczony ruch oporu',
-        backgroundUrl: '/src/assets/images/kindergarten_garden_1783451914603.jpg',
+        backgroundUrl: '/assets/images/kindergarten_garden_1783451914603.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Stajecie razem w ogrodzie przedszkolnym: Basia, Hania, Zosia, Milena, Robert, kucharz Janek, pomocnicy oraz Dyrektorka Helena.' },
           { speakerId: 'dyrektorka', text: 'Oficjalnie zawieszam wszystkie terapeutki w obowiązkach! Nasze przedszkole znowu będzie miejscem radosnego śmiechu i dziecięcej wolności!' },
@@ -1617,7 +1617,7 @@ export const CHAPTERS: Chapter[] = [
       ch20_blackout: {
         id: 'ch20_blackout',
         title: 'Ciemność i monitory',
-        backgroundUrl: '/src/assets/images/dark_kinder_bg_1783533364360.jpg',
+        backgroundUrl: '/assets/images/dark_kinder_bg_1783533364360.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Cisza jest porażająca. Nagle setki ekranów i interfejsów w całym przedszkolu rozświetlają się jaskrawym neonowym zielonym światłem.' },
           { speakerId: 'system', text: 'Na wszystkich monitorach miga tylko jeden, przerażający napis:' },
@@ -1638,7 +1638,7 @@ export const CHAPTERS: Chapter[] = [
       ch20_minigame: {
         id: 'ch20_minigame',
         title: 'Cyber-batalia o Tęczowy Zakątek',
-        backgroundUrl: '/src/assets/images/dark_kinder_bg_1783533364360.jpg',
+        backgroundUrl: '/assets/images/dark_kinder_bg_1783533364360.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Systemy obronne Kierownika wysyłają fale paraliżującego kodu. Połącz diamenty w epickie kaskady, by uratować wolność dzieci!' }
         ],
@@ -1649,7 +1649,7 @@ export const CHAPTERS: Chapter[] = [
       ch20_ending: {
         id: 'ch20_ending',
         title: 'Koniec Drugiej Kampanii',
-        backgroundUrl: '/src/assets/images/dark_kinder_bg_1783533364360.jpg',
+        backgroundUrl: '/assets/images/dark_kinder_bg_1783533364360.jpg',
         dialogue: [
           { speakerId: 'system', text: 'Z potężnym rozbłyskiem tęczowych barw cyfrowa blokada pęka, ratując rdzeń energetyczny przedszkola!' },
           { speakerId: 'player', text: 'Udało się powstrzymać pierwszą falę... ale prąd wciąż nie wraca, a na horyzoncie widzimy nadjeżdżające czarne vany syndykatu.' },

@@ -111,14 +111,30 @@ export default function MainMenu({
   return (
     <div
       id="main-menu-viewport"
-      className="min-h-screen bg-[#1a0f0a] text-white flex flex-col justify-between relative overflow-hidden bg-cover bg-center select-none"
-      style={{ backgroundImage: `url('/src/assets/images/game_cover_1783451874065.jpg')` }}
+      className="min-h-screen bg-[#070403] text-white flex flex-col justify-between relative overflow-hidden select-none font-sans"
     >
-      {/* Background Dimming and Golden Overlays for Cinematic depth */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-black/95 via-black/70 to-black/95" />
-      <div className="absolute inset-0 bg-gradient-to-br from-[#ffedcc] via-[#f7d08a] to-[#d9a066] opacity-15 pointer-events-none z-0" />
-      <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: `radial-gradient(circle at 75% 25%, rgba(255,255,255,0.2) 0%, transparent 65%)` }} />
-      <div className="absolute top-[-10%] left-[-5%] w-[45%] h-[45%] bg-[#ff9068] rounded-full blur-[140px] opacity-15 pointer-events-none z-0" />
+      {/* 1. Deep dark background layer */}
+      <div className="absolute inset-0 bg-radial-gradient from-[#1c0e0b] via-[#070403] to-[#020101] z-0" />
+
+      {/* 2. Softly blended game cover image with premium overlay style */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-luminosity z-0"
+        style={{ backgroundImage: `url('/assets/images/game_cover_1783451874065.jpg')` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#070403] via-transparent to-[#070403] opacity-80 z-0" />
+
+      {/* 3. Dual pulsating glowing orbs representing the clash of factions */}
+      {/* Warm creative teacher faction (Red/Amber glow on the left) */}
+      <div className="absolute -left-[10%] top-[20%] w-[50%] h-[50%] rounded-full bg-gradient-to-br from-rose-500/20 via-orange-600/5 to-transparent blur-[120px] pointer-events-none animate-pulse duration-[8000ms] z-0" />
+      
+      {/* Cool sterile therapist faction (Cyan/Blue glow on the right) */}
+      <div className="absolute -right-[10%] bottom-[20%] w-[50%] h-[50%] rounded-full bg-gradient-to-tl from-cyan-500/20 via-indigo-900/5 to-transparent blur-[120px] pointer-events-none animate-pulse duration-[10000ms] z-0" />
+
+      {/* Subtle organic light accent behind the title */}
+      <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[60%] h-[30%] bg-amber-500/5 rounded-full blur-[80px] pointer-events-none z-0" />
+
+      {/* Elegant overlay grid pattern */}
+      <div className="absolute inset-0 opacity-[0.015] pointer-events-none z-0" style={{ backgroundImage: `radial-gradient(#fff 1px, transparent 1px)`, backgroundSize: '24px 24px' }} />
 
       {/* Top HUD with audio control & player profile details */}
       <div className="z-10 p-3 md:p-4 flex flex-col sm:flex-row justify-between items-center gap-3 border-b border-white/5 backdrop-blur-md bg-black/30">
@@ -183,13 +199,10 @@ export default function MainMenu({
               {/* Title Logo with glow */}
               <div className="space-y-2 relative">
                 <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 w-48 h-48 bg-[#ff9068]/20 rounded-full filter blur-3xl animate-pulse" />
-                <span className="text-[10px] tracking-[0.6em] font-medium uppercase text-white/50 block mb-1">
-                  Google AI Studio Presents
-                </span>
-                <h1 className="text-5xl md:text-6xl font-black italic tracking-tight text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)]">
+                <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-black italic tracking-tight text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)] break-words">
                   KOLORY<span className="text-yellow-400">DUSZEK</span>
                 </h1>
-                <h2 className="text-sm font-extrabold tracking-[0.25em] text-cyan-300 uppercase font-mono mt-2">
+                <h2 className="text-xs sm:text-sm font-extrabold tracking-[0.15em] sm:tracking-[0.25em] text-cyan-300 uppercase font-mono mt-2">
                   Nauczycielki vs Terapeutki
                 </h2>
                 <div className="h-1 w-32 bg-gradient-to-r from-red-500 via-yellow-400 to-cyan-400 mx-auto rounded-full mt-4 shadow-[0_0_15px_rgba(252,211,77,0.5)]" />

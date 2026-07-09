@@ -12,7 +12,7 @@ export const CHARACTERS: { [id: string]: Character } = {
     faction: 'NAUCZYCIELKI',
     role: 'Liderka Kreatywności',
     description: 'Nauczycielka z powołania, uśmiechnięta i wiecznie ubrudzona farbami. Wierzy, że najlepsza nauka płynie z radosnego chaosu.',
-    portraitUrl: '/src/assets/images/basia_portrait_1783550806247.jpg',
+    portraitUrl: '/assets/images/basia_portrait_1783550806247.jpg',
     accentColor: '#fbbf24', // Amber
     secondaryColor: '#f59e0b',
     abilities: ['Mural Radości', 'Koralikowy Wybuch', 'Taniec Spontaniczny'],
@@ -26,7 +26,7 @@ export const CHARACTERS: { [id: string]: Character } = {
     faction: 'NAUCZYCIELKI',
     role: 'Mistrzyni Opowieści',
     description: 'Cicha, ale niezwykle charyzmatyczna miłośniczka teatru lalek i baśni. Potrafi zamienić stertę kartonów w latający zamek.',
-    portraitUrl: '/src/assets/images/hania_portrait_1783550817665.jpg',
+    portraitUrl: '/assets/images/hania_portrait_1783550817665.jpg',
     accentColor: '#34d399', // Emerald
     secondaryColor: '#10b981',
     abilities: ['Teatrzyk Kukiełkowy', 'Baśniowa Tarcza', 'Zew Przygody'],
@@ -40,7 +40,7 @@ export const CHARACTERS: { [id: string]: Character } = {
     faction: 'NAUCZYCIELKI',
     role: 'Wulkan Energii',
     description: 'Najmłodsza w zespole, uczy tańca, rytmiki i uwielbia zabawy na świeżym powietrzu. Dzieci biegają za nią jak za prawdziwym superbohaterem.',
-    portraitUrl: '/src/assets/images/zosia_portrait_1783550831052.jpg',
+    portraitUrl: '/assets/images/zosia_portrait_1783550831052.jpg',
     accentColor: '#f87171', // Red/Rose
     secondaryColor: '#f43f5e',
     abilities: ['Rytmiczny Skok', 'Berek Kolorów', 'Tornado Śmiechu'],
@@ -54,7 +54,7 @@ export const CHARACTERS: { [id: string]: Character } = {
     faction: 'TERAPEUTKI',
     role: 'Wielka Mistrzyni Zakonu',
     description: 'Wielka Mistrzyni Zakonu. Nigdy nie podnosi głosu, zawsze mówi spokojnie i zawsze się uśmiecha. Jest niezwykle inteligentna i przewiduje ruchy przeciwników o kilka kroków naprzód.',
-    portraitUrl: '/src/assets/images/calm_portrait_1783550841951.jpg',
+    portraitUrl: '/assets/images/calm_portrait_1783550841951.jpg',
     accentColor: '#60a5fa', // Blue
     secondaryColor: '#3b82f6',
     abilities: ['Bąbel Wykluczenia Dźwięków', 'Rytuał Srebrnego Krokodyla', 'Strefa Zero'],
@@ -68,7 +68,7 @@ export const CHARACTERS: { [id: string]: Character } = {
     faction: 'TERAPEUTKI',
     role: 'Specjalistka od Intryg',
     description: 'Specjalistka od plotek i manipulacji. Potrafi skłócić każdego z każdym. Nigdy nie walczy bezpośrednio – jej największą bronią są intrygi.',
-    portraitUrl: '/src/assets/images/whisper_portrait_1783550853186.jpg',
+    portraitUrl: '/assets/images/whisper_portrait_1783550853186.jpg',
     accentColor: '#a78bfa', // Purple
     secondaryColor: '#8b5cf6',
     abilities: ['Szept ASMR', 'Lampa Lawowa Spokoju', 'Zegarmistrzowski Sen'],
@@ -82,7 +82,7 @@ export const CHARACTERS: { [id: string]: Character } = {
     faction: 'TERAPEUTKI',
     role: 'Korektorka Przestrzeni',
     description: 'Odpowiada za bezpośrednią realizację planów zakonu. Tworzy sztywne zasady, regulaminy i ograniczenia mające utrudnić życie nauczycielkom oraz przygotowuje kolejne etapy przejęcia sal.',
-    portraitUrl: '/src/assets/images/harmony_portrait_1783550862967.jpg',
+    portraitUrl: '/assets/images/harmony_portrait_1783550862967.jpg',
     accentColor: '#2dd4bf', // Teal
     secondaryColor: '#0d9488',
     abilities: ['Symetryczny Dotyk', 'Kamerton Ładu', 'Wektor Czystości'],
@@ -96,7 +96,7 @@ export const CHARACTERS: { [id: string]: Character } = {
     faction: 'NEUTRAL',
     role: 'Duch Przedszkola',
     description: 'Magiczny, świecący duszek, który od wieków chroni dziecięcą energię, dbając o to, by w przedszkolu panował balans.',
-    portraitUrl: '/src/assets/images/game_cover_1783451874065.jpg',
+    portraitUrl: '/assets/images/game_cover_1783451874065.jpg',
     accentColor: '#ec4899', // Pink
     secondaryColor: '#db2777',
     abilities: [],
@@ -110,7 +110,7 @@ export const CHARACTERS: { [id: string]: Character } = {
     faction: 'NAUCZYCIELKI',
     role: 'Nowa Nauczycielka',
     description: 'Niezwykle życzliwa i ciepła nowa nauczycielka, która szybko zaskarbia sobie sympatię wszystkich w Tęczowym Zakątku. Skrywa jednak wielką tajemnicę.',
-    portraitUrl: '/src/assets/images/amelia_portrait_1783531566501.jpg',
+    portraitUrl: '/assets/images/amelia_portrait_1783531566501.jpg',
     accentColor: '#f472b6',
     secondaryColor: '#db2777',
     abilities: ['Uśmiech Zaufania', 'Serdeczna Dłoń', 'Słodki Sabotaż'],
@@ -124,7 +124,7 @@ export const CHARACTERS: { [id: string]: Character } = {
     faction: 'TERAPEUTKI',
     role: 'Prawdziwy Szef w Cieniu',
     description: 'Tajemniczy, charyzmatyczny dyrektor całego syndykatu, który kontroluje dziesiątki przedszkoli pod pozorem wprowadzania ładu.',
-    portraitUrl: '/src/assets/images/bald_manager_portrait_1783529726331.jpg',
+    portraitUrl: '/assets/images/bald_manager_portrait_1783529726331.jpg',
     accentColor: '#a78bfa',
     secondaryColor: '#7c3aed',
     abilities: ['Kalkulacja Kosztów', 'Cięcia Budżetowe', 'Zarządzanie Cieniem'],
@@ -138,7 +138,7 @@ export const CHARACTERS: { [id: string]: Character } = {
     faction: 'NAUCZYCIELKI',
     role: 'Nauczycielka Angielskiego',
     description: 'Zawsze uśmiechnięta i kreatywna nauczycielka angielskiego, która przez długi czas bała się terapeutek, ale teraz otwarcie dołącza do ruchu oporu.',
-    portraitUrl: '/src/assets/images/english_teacher_portrait_1783533253051.jpg',
+    portraitUrl: '/assets/images/english_teacher_portrait_1783533253051.jpg',
     accentColor: '#ec4899', // Pinkish
     secondaryColor: '#db2777',
     abilities: ['Lekcja Odwagi', 'English Fun', 'Śpiewające Słówka'],
@@ -152,7 +152,7 @@ export const CHARACTERS: { [id: string]: Character } = {
     faction: 'NEUTRAL',
     role: 'Główna Dyrektorka',
     description: 'Starsza, bardzo serdeczna i dobra kobieta, która szczerze kocha dzieci, lecz przez brak rzetelnych informacji stała się ofiarą manipulacji terapeutek.',
-    portraitUrl: '/src/assets/images/director_portrait_1783533268563.jpg',
+    portraitUrl: '/assets/images/director_portrait_1783533268563.jpg',
     accentColor: '#f59e0b', // Amber
     secondaryColor: '#d97706',
     abilities: ['Matczyna Troska', 'Dyrektorski Dekret', 'Słuchanie Stron'],
@@ -166,7 +166,7 @@ export const CHARACTERS: { [id: string]: Character } = {
     faction: 'NEUTRAL',
     role: 'Szef Kuchni',
     description: 'Poczciwy kucharz, który od wielu lat karmi przedszkolaki. Nie wie już komu wierzyć, przez co błądzi między stronami konfliktu.',
-    portraitUrl: '/src/assets/images/cook_portrait_1783533279630.jpg',
+    portraitUrl: '/assets/images/cook_portrait_1783533279630.jpg',
     accentColor: '#10b981', // Emerald
     secondaryColor: '#059669',
     abilities: ['Złoty Rosół', 'Tarcza z Pokrywki', 'Zapach Drożdżówki'],
@@ -180,7 +180,7 @@ export const CHARACTERS: { [id: string]: Character } = {
     faction: 'NAUCZYCIELKI',
     role: 'Nauczyciel Wychowania Fizycznego',
     description: 'Spokojny, wysportowany i lubiany przez dzieci w-fista, który odzyskał odwagę, by stawić czoła uciskowi terapeutek.',
-    portraitUrl: '/src/assets/images/pe_teacher_portrait_1783533293006.jpg',
+    portraitUrl: '/assets/images/pe_teacher_portrait_1783533293006.jpg',
     accentColor: '#3b82f6', // Blue
     secondaryColor: '#2563eb',
     abilities: ['Olimpijski Skok', 'Gwizdek Odwagi', 'Sportowy Duh'],
@@ -194,7 +194,7 @@ export const CHARACTERS: { [id: string]: Character } = {
     faction: 'TERAPEUTKI',
     role: 'Operatorka Podsłuchu',
     description: 'Bezwzględna i chłodna operatorka systemów podsłuchowych wysłana byle przez Łysego Kierownika do kontrolowania każdego szeptu w przedszkolu.',
-    portraitUrl: '/src/assets/images/sonia_portrait_1783533307520.jpg',
+    portraitUrl: '/assets/images/sonia_portrait_1783533307520.jpg',
     accentColor: '#8b5cf6', // Purple
     secondaryColor: '#6d28d9',
     abilities: ['Paraliżujący Szum', 'Bariera Dźwiękochłonna', 'Przechwycenie Częstotliwości'],
@@ -208,7 +208,7 @@ export const CHARACTERS: { [id: string]: Character } = {
     faction: 'NEUTRAL',
     role: 'Nowy Pracownik',
     description: 'Asystentka przedszkolna poszukująca swojej drogi. Twoje decyzje ukształtują przyszłość Tęczowego Zakątka.',
-    portraitUrl: '/src/assets/images/game_cover_1783451874065.jpg',
+    portraitUrl: '/assets/images/game_cover_1783451874065.jpg',
     accentColor: '#94a3b8',
     secondaryColor: '#64748b',
     abilities: [],

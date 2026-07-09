@@ -26,6 +26,18 @@ export default function HeroineCutIn({ id, name, attackName, quote, color, accen
   // If we are showing a combo (and combo count is >= 2), render a massive combo burst badge
   const isComboBonus = combo >= 2;
 
+  // Determine dedicated portrait URL based on the heroine's id
+  let portraitSrc = "/assets/images/teachers_trio_1783451887451.jpg";
+  if (id === 'basia') {
+    portraitSrc = "/assets/images/basia_portrait_1783550806247.jpg";
+  } else if (id === 'hania') {
+    portraitSrc = "/assets/images/hania_portrait_1783550817665.jpg";
+  } else if (id === 'zosia') {
+    portraitSrc = "/assets/images/zosia_portrait_1783550831052.jpg";
+  } else if (id === 'dyrektor') {
+    portraitSrc = "/assets/images/director_portrait_1783533268563.jpg";
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -60,7 +72,7 @@ export default function HeroineCutIn({ id, name, attackName, quote, color, accen
       {/* Main visual containment container */}
       <div className="relative w-full max-w-5xl h-full flex items-center justify-between px-6 sm:px-16 z-20 pointer-events-none">
         
-        {/* HEROINE PORTRAIT - Crop and scale of teachers trio with dramatic filters */}
+        {/* HEROINE PORTRAIT - Dedicated teacher portrait with dramatic filters */}
         <motion.div
           initial={{ x: -160, opacity: 0, scale: 0.85 }}
           animate={{ x: 0, opacity: 1, scale: 1 }}
@@ -70,13 +82,11 @@ export default function HeroineCutIn({ id, name, attackName, quote, color, accen
           style={glowStyle}
         >
           <img
-            src="/src/assets/images/teachers_trio_1783451887451.jpg"
+            src={portraitSrc}
             alt={name}
             referrerPolicy="no-referrer"
-            className="w-full h-full object-cover scale-110"
+            className="w-full h-full object-cover scale-100"
             style={{
-              // Zoom & adjust focus based on active teacher
-              objectPosition: id === 'basia' ? 'left' : id === 'hania' ? 'center' : id === 'zosia' ? 'right' : 'center',
               filter: `brightness(1.15) contrast(1.1) saturate(130%) drop-shadow(0 0 10px ${accentColor}cc)`
             }}
           />
