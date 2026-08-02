@@ -190,7 +190,9 @@ export default function AnimatedPortrait({ speaker, speakerId, dialogueText }: A
                 delay,
                 ease: 'easeOut',
               }}
-            />
+            >
+              {icon}
+            </motion.div>
           );
         })}
       </div>

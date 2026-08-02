@@ -6,7 +6,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Sparkles, Heart, Sword, Shield, Clock, RotateCcw, Award, Zap, Smile, BookOpen, Skull, Volume2, VolumeX, Flame } from 'lucide-react';
+import { Sparkles, Heart, Sword, Shield, Clock, RotateCcw, Award, Zap, Smile, BookOpen, Skull, Volume2, VolumeX, Flame, LogOut } from 'lucide-react';
 import { PlayerProfile } from '../types';
 import { sound } from './SoundManager';
 import { OPPONENTS } from '../data/opponents';
@@ -1118,7 +1118,8 @@ export default function DiamondAttack({ playerProfile, opponentId, opponentLevel
 
   return createPortal(
     <div className="fixed inset-0 bg-[#0c0604] text-white z-50 flex flex-col p-2 xs:p-3 md:p-6 overflow-hidden select-none font-sans">
-      
+
+
       {/* 1. Animated Classroom Background Backdrop */}
       <ClassroomBackground 
         playerHp={playerHp}
@@ -1148,11 +1149,23 @@ export default function DiamondAttack({ playerProfile, opponentId, opponentLevel
         </div>
 
         <button
-          onClick={() => onClose({ gold: 0, diamonds: 0, xp: 0, won: false })}
+          onClick={() => {
+            sound.playClick();
+            onClose(isTraining ? { gold: 0, diamonds: 0, xp: 0, won: false, trainingScore: score } : { gold: 0, diamonds: 0, xp: 0, won: false });
+          }}
           className="bg-black/50 border border-[#ff9068]/30 text-slate-300 px-4 py-2 rounded-2xl text-xs font-bold uppercase tracking-widest hover:bg-[#ff9068]/15 hover:text-white transition active:scale-95 flex items-center gap-2"
         >
-          <RotateCcw className="w-3.5 h-3.5 text-[#ff9068]" />
-          Ucieczka
+          {isTraining ? (
+            <>
+              <LogOut className="w-3.5 h-3.5 text-amber-400" />
+              Zapisz wynik i wyjdź
+            </>
+          ) : (
+            <>
+              <RotateCcw className="w-3.5 h-3.5 text-[#ff9068]" />
+              Ucieczka
+            </>
+          )}
         </button>
       </div>
 

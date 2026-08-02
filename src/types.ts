@@ -64,6 +64,7 @@ export interface GameState {
   inventory: string[];
   completedMinigames: string[];
   characterStatuses: { [charId: string]: 'locked' | 'unlocked' | 'friendly' };
+  decisions?: string[];
 }
 
 export interface TeacherStats {

@@ -202,6 +202,19 @@ export const CHARACTERS: { [id: string]: Character } = {
     winPhrase: 'Wszystkie wasze sekrety należą do mnie.',
     requiredChapter: 15
   },
+  husband: {
+    id: 'husband',
+    name: 'Mąż Tomek',
+    faction: 'NEUTRAL',
+    role: 'Wspierający Mąż',
+    description: 'Twój mąż, który cierpliwie słucha opowieści o zmaganiach w przedszkolu i zawsze służy mądrą, pragmatyczną radą.',
+    portraitUrl: '/assets/images/husband_portrait_1783673184069.jpg',
+    accentColor: '#38bdf8',
+    secondaryColor: '#0284c7',
+    abilities: ['Ciepła Herbata', 'Zdrowy Rozsądek', 'Cierpliwe Słuchanie'],
+    history: 'Wieczorami w domu parzy pyszną herbatę i pomaga Ci poukładać myśli po burzliwych dniach w Tęczowym Zakątku. Pragmatyk, który bardzo Cię kocha.',
+    winPhrase: 'Zawsze jestem po Twojej stronie, kochanie.'
+  },
   player: {
     id: 'player',
     name: 'Asystentka (Ty)',
@@ -215,5 +228,71 @@ export const CHARACTERS: { [id: string]: Character } = {
     history: 'Zaczynasz swój pierwszy dzień pracy w tym na pozór uroczym przedszkolu. Szybko orientujesz się, że pod piosenkami kryje się walka o wpływy.',
     winPhrase: 'To była moja świadoma decyzja o losie dzieci!',
     requiredChapter: 1
+  },
+  shadow_therapist: {
+    id: 'shadow_therapist',
+    name: 'Pani Małgorzata',
+    faction: 'TERAPEUTKI',
+    role: 'Nowy Cień / Nowa Liderka',
+    description: 'Chłodna, wyrachowana terapeutka, która dotąd milczała w cieniu Pani Calm. Odkrywa karty po upadku Kierownika, z którym łączyła ją bliska przeszłość.',
+    portraitUrl: '/assets/images/malgorzata_portrait_1783676560366.jpg',
+    accentColor: '#8b5cf6',
+    secondaryColor: '#1e1b4b',
+    abilities: ['Izolacja Kontrolowana', 'Szept Hipnotyzujący', 'Zasłona Milczenia'],
+    history: 'Wspólnie z Łysym Kierownikiem współtworzyła pierwotne założenia programowe Zakonu Porządku. Po jego upadku przejmuje przywództwo nad pozostałymi terapeutkami, zdeterminowana, by dokończyć ich misję.',
+    winPhrase: 'To dopiero początek mojego porządku.',
+    requiredChapter: 24
+  },
+  mom: {
+    id: 'mom',
+    name: 'Mama',
+    faction: 'NEUTRAL',
+    role: 'Troskliwa Mama',
+    description: 'Twoja mama, która zawsze słucha z niepokojem o wydarzeniach w pracy i stara się otoczyć Cię matczynym ciepłem.',
+    portraitUrl: '/assets/images/director_portrait_1783533268563.jpg',
+    accentColor: '#f472b6',
+    secondaryColor: '#db2777',
+    abilities: [],
+    history: 'Troskliwa matka wspierająca Cię w trudnych momentach zawodowych.',
+    winPhrase: 'Pamiętaj, jesteś silniejsza niż myślisz.'
+  },
+  pomoc_nauczyciela: {
+    id: 'pomoc_nauczyciela',
+    name: 'Pomoc Nauczyciela (Marta)',
+    faction: 'NEUTRAL',
+    role: 'Pracownik Obsługi',
+    description: 'Pomoc nauczyciela, która w wyniku indywidualnych rozmów w gabinecie uległa manipulacyjnej narracji terapeutek.',
+    portraitUrl: '/assets/images/cook_portrait_1783533279630.jpg',
+    accentColor: '#fb7185',
+    secondaryColor: '#e11d48',
+    abilities: [],
+    history: 'Dawniej sympatyczna i otwarta, po długich rozmowach w gabinecie terapeutek zaczęła powtarzać ich argumenty.',
+    winPhrase: 'Wszystko wreszcie zostało mi wyjaśnione...'
+  },
+  wozna: {
+    id: 'wozna',
+    name: 'Pani Woźna (Krystyna)',
+    faction: 'NEUTRAL',
+    role: 'Pracownik Gospodarczy',
+    description: 'Woźna dbająca o czystość korytarzy, zastraszona przez Małgorzatę i skłaniana do unikania nauczycielek.',
+    portraitUrl: '/assets/images/cook_portrait_1783533279630.jpg',
+    accentColor: '#a1a1aa',
+    secondaryColor: '#71717a',
+    abilities: [],
+    history: 'Cicha osoba pracująca w przedszkolu od lat, wciągnięta w manipulacyjne schematy gabinetu.',
+    winPhrase: 'Ja tylko dbam o czystość na korytarze...'
+  },
+  parent: {
+    id: 'parent',
+    name: 'Zaniepokojony Rodzic',
+    faction: 'NEUTRAL',
+    role: 'Rodzic Przedszkolaka',
+    description: 'Rodzic zauważający masowe odejścia kadry i chaos organizacyjny w Tęczowym Zakątku.',
+    portraitUrl: '/assets/images/english_teacher_portrait_1783533253051.jpg',
+    accentColor: '#fbbf24',
+    secondaryColor: '#d97706',
+    abilities: [],
+    history: 'Szuka stabilnego środowiska dla swojego dziecka, ale narastający kryzys zmusza go do szukania nowej placówki.',
+    winPhrase: 'Dla mojego dziecka najważniejsze jest bezpieczeństwo.'
   }
 };

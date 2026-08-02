@@ -10,6 +10,7 @@ class SoundManager {
   private sfxGain: GainNode | null = null;
   private masterGain: GainNode | null = null;
   private isMuted: boolean = false;
+  private isMusicMuted: boolean = true;
   private currentStyle: 'happy' | 'calm' | 'tension' | null = null;
 
   // Cached noise buffer to avoid reallocation during rapid tile zaps or hits
@@ -20,7 +21,21 @@ class SoundManager {
   private currentStep: number = 0;
 
   constructor() {
-    // AudioContext is initialized lazily on first user gesture (click/swipe)
+    // Load saved preferences or default music to muted (true) as requested
+    try {
+      const savedMute = localStorage.getItem('koloryduszek_master_muted');
+      if (savedMute !== null) {
+        this.isMuted = savedMute === 'true';
+      }
+      const savedMusicMute = localStorage.getItem('koloryduszek_music_muted');
+      if (savedMusicMute !== null) {
+        this.isMusicMuted = savedMusicMute === 'true';
+      } else {
+        this.isMusicMuted = true; // Default background music to disabled
+      }
+    } catch (e) {
+      this.isMusicMuted = true;
+    }
   }
 
   private initContext() {
@@ -40,7 +55,7 @@ class SoundManager {
 
           // Dedicated background music channel
           this.musicGain = this.ctx.createGain();
-          this.musicGain.gain.setValueAtTime(0.24, this.ctx.currentTime);
+          this.musicGain.gain.setValueAtTime(this.isMusicMuted ? 0 : 0.24, this.ctx.currentTime);
           this.musicGain.connect(this.masterGain);
 
           // Dedicated sound effects channel
@@ -78,6 +93,9 @@ class SoundManager {
 
   setMute(muted: boolean) {
     this.isMuted = muted;
+    try {
+      localStorage.setItem('koloryduszek_master_muted', String(muted));
+    } catch (e) {}
     this.initContext();
     if (this.masterGain && this.ctx) {
       try {
@@ -95,6 +113,30 @@ class SoundManager {
 
   getMuted(): boolean {
     return this.isMuted;
+  }
+
+  setMusicMute(muted: boolean) {
+    this.isMusicMuted = muted;
+    try {
+      localStorage.setItem('koloryduszek_music_muted', String(muted));
+    } catch (e) {}
+    this.initContext();
+    if (this.musicGain && this.ctx) {
+      try {
+        this.musicGain.gain.setValueAtTime(muted ? 0 : 0.24, this.ctx.currentTime);
+      } catch (e) {
+        console.warn('Failed to set music volume gain:', e);
+      }
+    }
+  }
+
+  toggleMusicMute(): boolean {
+    this.setMusicMute(!this.isMusicMuted);
+    return this.isMusicMuted;
+  }
+
+  getMusicMuted(): boolean {
+    return this.isMusicMuted;
   }
 
   /* ------------------- SOUND EFFECTS (SFX) ------------------- */
@@ -788,7 +830,7 @@ class SoundManager {
     const scheduleInterval = 40; // Clock tick every 40ms
 
     const tick = () => {
-      if (!this.ctx || this.isMuted) return;
+      if (!this.ctx || this.isMuted || this.isMusicMuted) return;
 
       try {
         const now = this.ctx.currentTime;
@@ -824,7 +866,7 @@ class SoundManager {
 
   // Multi-voice synthesizer step scheduler
   private scheduleStep(step: number, time: number, style: 'happy' | 'calm' | 'tension') {
-    if (!this.ctx || !this.musicGain || this.isMuted) return;
+    if (!this.ctx || !this.musicGain || this.isMuted || this.isMusicMuted) return;
 
     try {
       if (style === 'happy') {

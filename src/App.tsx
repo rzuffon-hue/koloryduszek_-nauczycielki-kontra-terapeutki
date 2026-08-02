@@ -33,7 +33,8 @@ const DEFAULT_STORY_STATE: GameState = {
     calm: 'unlocked',
     whisper: 'unlocked',
     harmony: 'locked'
-  }
+  },
+  decisions: []
 };
 
 // Robust profile migrator to gracefully heal old or missing fields on existing user profiles

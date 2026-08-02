@@ -5,11 +5,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Play, RotateCcw, Users, Info, Settings, Sparkles, Volume2, VolumeX, ShieldQuestion, Star, Compass, Coins, Gem, LogOut, Wrench, Layers, Lock, Download, Smartphone } from 'lucide-react';
+import { Play, RotateCcw, Users, Info, Settings, Sparkles, Volume2, VolumeX, Music, ShieldQuestion, Star, Compass, Coins, Gem, LogOut, Wrench, Layers, Lock, Download, Smartphone } from 'lucide-react';
 import { sound } from './SoundManager';
 import { CHARACTERS } from '../data/characters';
 import { CHAPTERS } from '../data/chapters';
 import { GameState, PlayerProfile } from '../types';
+import PhoneSnake from './PhoneSnake';
 
 interface MainMenuProps {
   playerProfile: PlayerProfile;
@@ -36,7 +37,9 @@ export default function MainMenu({
 }: MainMenuProps) {
   const [activeTab, setActiveTab] = useState<'main' | 'characters' | 'about' | 'admin'>('main');
   const [isMuted, setIsMuted] = useState(sound.getMuted());
+  const [isMusicMuted, setIsMusicMuted] = useState(sound.getMusicMuted());
   const [selectedChar, setSelectedChar] = useState<string | null>(null);
+  const [isSnakeOpen, setIsSnakeOpen] = useState(false);
 
   // PWA installation states
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
@@ -103,6 +106,11 @@ export default function MainMenu({
     setIsMuted(muted);
   };
 
+  const toggleMusic = () => {
+    const muted = sound.toggleMusicMute();
+    setIsMusicMuted(muted);
+  };
+
   const handleCharClick = (id: string) => {
     sound.playClick();
     setSelectedChar(id === selectedChar ? null : id);
@@ -114,14 +122,17 @@ export default function MainMenu({
       className="min-h-screen bg-[#070403] text-white flex flex-col justify-between relative overflow-hidden select-none font-sans"
     >
       {/* 1. Deep dark background layer */}
-      <div className="absolute inset-0 bg-radial-gradient from-[#1c0e0b] via-[#070403] to-[#020101] z-0" />
+      <div 
+        className="absolute inset-0 z-0" 
+        style={{ backgroundImage: 'radial-gradient(circle at center, #1c0e0b 0%, #070403 70%, #020101 100%)' }} 
+      />
 
       {/* 2. Softly blended game cover image with premium overlay style */}
       <div 
-        className="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-luminosity z-0"
+        className="absolute inset-0 bg-cover bg-center opacity-30 z-0"
         style={{ backgroundImage: `url('/assets/images/game_cover_1783451874065.jpg')` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#070403] via-transparent to-[#070403] opacity-80 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#070403] via-transparent to-[#070403] opacity-85 z-0" />
 
       {/* 3. Dual pulsating glowing orbs representing the clash of factions */}
       {/* Warm creative teacher faction (Red/Amber glow on the left) */}
@@ -146,6 +157,15 @@ export default function MainMenu({
             </span>
           </div>
           
+           <button
+            onClick={toggleMusic}
+            id="toggle-menu-music-btn"
+            className="sm:hidden p-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 transition text-slate-300 flex items-center justify-center gap-1"
+            title={isMusicMuted ? "Włącz muzykę w tle" : "Wyłącz muzykę w tle"}
+          >
+            {isMusicMuted ? <Music className="w-4 h-4 text-rose-400 opacity-60" /> : <Music className="w-4 h-4 text-amber-400 animate-pulse" />}
+          </button>
+
           <button
             onClick={toggleMute}
             id="toggle-menu-audio-btn"
@@ -174,6 +194,15 @@ export default function MainMenu({
             <p className="text-xs font-black text-white leading-none">{playerProfile.username}</p>
             <p className="text-[9px] uppercase font-mono tracking-widest text-amber-300 mt-1">Poziom {playerProfile.level}</p>
           </div>
+
+           <button
+            onClick={toggleMusic}
+            id="toggle-menu-music-btn-desktop"
+            className="hidden sm:block p-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 transition text-slate-300 shadow-md"
+            title={isMusicMuted ? "Włącz muzykę w tle" : "Wyłącz muzykę w tle"}
+          >
+            {isMusicMuted ? <Music className="w-4 h-4 text-rose-400 opacity-60" /> : <Music className="w-4 h-4 text-amber-400" />}
+          </button>
 
           <button
             onClick={toggleMute}
@@ -206,6 +235,58 @@ export default function MainMenu({
                   Nauczycielki vs Terapeutki
                 </h2>
                 <div className="h-1 w-32 bg-gradient-to-r from-red-500 via-yellow-400 to-cyan-400 mx-auto rounded-full mt-4 shadow-[0_0_15px_rgba(252,211,77,0.5)]" />
+                
+                {/* Informacja o nowej aktualizacji - Rozdziały 24-30 przyklejona jak plaster po skosie */}
+                <div className="relative z-20 -mt-3 -rotate-[2.5deg] hover:rotate-0 transition-all duration-300 ease-out max-w-xs sm:max-w-sm mx-auto drop-shadow-[0_8px_16px_rgba(139,92,246,0.35)] select-none">
+                  {/* Jagged / tape edges */}
+                  <div className="absolute -left-1.5 top-0 bottom-0 w-2 bg-[#8b5cf6]/30" style={{ clipPath: 'polygon(100% 0, 0 25%, 100% 50%, 0 75%, 100% 100%)' }} />
+                  <div className="absolute -right-1.5 top-0 bottom-0 w-2 bg-[#8b5cf6]/30" style={{ clipPath: 'polygon(0 0, 100% 25%, 0 50%, 100% 75%, 0 100%)' }} />
+                  
+                  <div className="px-4 py-2 bg-gradient-to-r from-violet-600/90 via-fuchsia-600/85 to-indigo-700/90 border-y border-violet-400/50 backdrop-blur-sm shadow-inner flex flex-col items-center justify-center">
+                    <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] font-mono tracking-widest text-yellow-300 uppercase font-black drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
+                      <Sparkles className="w-3.5 h-3.5 text-yellow-300 animate-pulse" />
+                      <span>Nowość: Rozdziały 24 - 30</span>
+                    </div>
+                    <p className="text-[9px] sm:text-[10px] text-violet-100 font-bold mt-0.5 uppercase font-mono tracking-wider drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">
+                      Akt II: Nowy cień już dostępny!
+                    </p>
+                  </div>
+                </div>
+
+                {/* Drugi plaster - Nowe gry w telefonie przyklejony pod spodem z przeciwnym skosem */}
+                <div className="relative z-20 mt-1 rotate-[2deg] hover:rotate-0 transition-all duration-300 ease-out max-w-xs sm:max-w-sm mx-auto drop-shadow-[0_8px_16px_rgba(245,158,11,0.35)] select-none">
+                  {/* Jagged / tape edges */}
+                  <div className="absolute -left-1.5 top-0 bottom-0 w-2 bg-[#d97706]/30" style={{ clipPath: 'polygon(100% 0, 0 25%, 100% 50%, 0 75%, 100% 100%)' }} />
+                  <div className="absolute -right-1.5 top-0 bottom-0 w-2 bg-[#d97706]/30" style={{ clipPath: 'polygon(0 0, 100% 25%, 0 50%, 100% 75%, 0 100%)' }} />
+                  
+                  <div className="px-4 py-1.5 bg-gradient-to-r from-amber-600/95 via-orange-500/90 to-yellow-600/95 border-y border-amber-400/50 backdrop-blur-sm shadow-inner flex flex-col items-center justify-center">
+                    <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] font-mono tracking-widest text-yellow-100 uppercase font-black drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
+                      <Smartphone className="w-3.5 h-3.5 text-yellow-300 animate-pulse" />
+                      <span>Nowe Gry w Telefonie!</span>
+                    </div>
+                    <p className="text-[9px] sm:text-[10px] text-amber-50 font-bold mt-0.5 uppercase font-mono tracking-wider drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">
+                      Sprawdź Wężyka Ylla i zrelaksuj się!
+                    </p>
+                  </div>
+                </div>
+
+                {/* Trzeci plaster - Nowość: Rozdział 41 & Pamiętnik Po Upadku nakładający się na dwa pozostałe */}
+                <div className="relative z-30 -mt-2.5 -rotate-[3.5deg] hover:rotate-0 transition-all duration-300 ease-out max-w-xs sm:max-w-sm mx-auto drop-shadow-[0_10px_22px_rgba(16,185,129,0.5)] select-none">
+                  {/* Jagged / tape edges */}
+                  <div className="absolute -left-1.5 top-0 bottom-0 w-2 bg-[#059669]/40" style={{ clipPath: 'polygon(100% 0, 0 25%, 100% 50%, 0 75%, 100% 100%)' }} />
+                  <div className="absolute -right-1.5 top-0 bottom-0 w-2 bg-[#059669]/40" style={{ clipPath: 'polygon(0 0, 100% 25%, 0 50%, 100% 75%, 0 100%)' }} />
+                  
+                  <div className="px-4 py-2 bg-gradient-to-r from-emerald-600/95 via-teal-600/90 to-cyan-700/95 border-y-2 border-emerald-300/60 backdrop-blur-sm shadow-xl flex flex-col items-center justify-center">
+                    <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] font-mono tracking-widest text-emerald-100 uppercase font-black drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
+                      <Sparkles className="w-3.5 h-3.5 text-yellow-300 animate-spin" />
+                      <span>Finał: Rozdział 41 „Poza Murami”</span>
+                    </div>
+                    <p className="text-[9px] sm:text-[10px] text-teal-100 font-bold mt-0.5 uppercase font-mono tracking-wider drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">
+                      Spotkanie w Kawiarni & Pamiętnik Po Upadku!
+                    </p>
+                  </div>
+                </div>
+
                 {isInstalled && (
                   <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono font-bold tracking-wider uppercase mt-3 animate-pulse">
                     <Smartphone className="w-3.5 h-3.5" /> Aplikacja PWA aktywna
@@ -274,6 +355,18 @@ export default function MainMenu({
                     🏋️ TRENING BEZSTRESOWY MATCH-3
                   </button>
                 )}
+
+                {/* Snake Minigame Launcher Button */}
+                <button
+                  onClick={() => {
+                    sound.playClick();
+                    setIsSnakeOpen(true);
+                  }}
+                  id="snake-menu-btn"
+                  className="w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-green-600 text-slate-950 font-black py-4 px-6 rounded-2xl shadow-[0_4px_20px_rgba(16,185,129,0.35)] hover:brightness-110 hover:shadow-[0_4px_30px_rgba(16,185,129,0.6)] transform hover:scale-[1.01] active:scale-99 transition flex items-center justify-center gap-2.5 text-base tracking-wider uppercase border-b-4 border-emerald-800"
+                >
+                  <span className="text-xl">🐍</span> GRA WĘŻYK PRZEDSZKOLNY
+                </button>
 
                 {playerProfile.isAdmin && (
                   <button
@@ -351,7 +444,8 @@ export default function MainMenu({
                   .filter((c) => c.id !== 'system' && c.id !== 'player')
                   .map((char) => {
                     const isNauczycielka = char.faction === 'NAUCZYCIELKI';
-                    const isUnlocked = playerProfile.unlockedTeachers.includes(char.id);
+                    const isTherapist = char.faction === 'TERAPEUTKI';
+                    const isUnlocked = char.requiredChapter <= gameState.currentChapterId || playerProfile.unlockedTeachers.includes(char.id);
                     return (
                       <button
                         key={char.id}
@@ -364,7 +458,9 @@ export default function MainMenu({
                             ? isUnlocked
                               ? isNauczycielka
                                 ? 'bg-amber-500/20 border-amber-500 text-white shadow-[0_0_15px_rgba(245,158,11,0.2)]'
-                                : 'bg-cyan-500/20 border-cyan-500 text-white shadow-[0_0_15px_rgba(6,182,212,0.2)]'
+                                : isTherapist
+                                  ? 'bg-red-500/20 border-red-500 text-white shadow-[0_0_15px_rgba(239,68,68,0.2)]'
+                                  : 'bg-cyan-500/20 border-cyan-500 text-white shadow-[0_0_15px_rgba(6,182,212,0.2)]'
                               : 'bg-rose-950/40 border-rose-500 text-white shadow-[0_0_15px_rgba(244,63,94,0.2)]'
                             : isUnlocked
                               ? 'bg-black/40 border-white/10 hover:border-white/20 text-slate-300'
@@ -375,7 +471,11 @@ export default function MainMenu({
                           <div className="flex items-center justify-between">
                             <span className="text-[9px] opacity-80 font-mono uppercase font-bold tracking-wider">
                               {isUnlocked
-                                ? isNauczycielka ? '🌼 Nauczycielka' : '🔷 Terapeutka'
+                                ? isNauczycielka 
+                                  ? '🌼 Protagonistka' 
+                                  : isTherapist 
+                                    ? '😈 Antagonistka' 
+                                    : '⚖️ Neutralna'
                                 : '🔒 Zablokowane'}
                             </span>
                           </div>
@@ -396,7 +496,9 @@ export default function MainMenu({
               <AnimatePresence mode="wait">
                 {selectedChar ? (() => {
                   const charData = CHARACTERS[selectedChar];
-                  const isUnlocked = playerProfile.unlockedTeachers.includes(selectedChar);
+                  const isNauczycielka = charData.faction === 'NAUCZYCIELKI';
+                  const isTherapist = charData.faction === 'TERAPEUTKI';
+                  const isUnlocked = charData.requiredChapter <= gameState.currentChapterId || playerProfile.unlockedTeachers.includes(selectedChar);
 
                   if (!isUnlocked) {
                     return (
@@ -413,14 +515,14 @@ export default function MainMenu({
                         </div>
                         <div className="space-y-1">
                           <h4 className="text-sm font-black text-rose-400 uppercase tracking-widest font-mono flex items-center justify-center md:justify-start gap-1.5">
-                            <span>⚠️ DOSTĘP ZABRONIONY • SZYFROWANE AKTA</span>
+                            <span>⚠️ DOSTĘP ZABRONIONY • SZYFROWANE AKTA OSOBOWE</span>
                           </h4>
                           <p className="text-xs text-slate-300 leading-relaxed font-medium">
-                            Profil psychologiczny, historia oraz unikalne zdolności tej postaci są tymczasowo zablokowane. 
-                            Poznaj tę postać bezpośrednio w trakcie przechodzenia wątku głównego.
+                            Profil tej postaci, jej historia, plany fabularne oraz unikalne cechy są utajnione.
+                            Musisz najpierw napotkać tę postać w wątku głównym gry.
                           </p>
                           <div className="text-xs text-amber-200/80 font-mono pt-1">
-                            💡 Wymagany postęp: <span className="font-bold text-amber-400">Rozdział {charData.requiredChapter}</span> (lub wyższy).
+                            💡 Wymagany postęp fabularny: <span className="font-bold text-amber-400">Rozdział {charData.requiredChapter}</span> (lub wyższy).
                           </div>
                         </div>
                       </motion.div>
@@ -445,25 +547,38 @@ export default function MainMenu({
                       </div>
 
                       <div className="md:col-span-2 space-y-2">
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 flex-wrap">
                           <h4 className="text-lg font-black" style={{ color: charData.accentColor }}>
                             {charData.name}
                           </h4>
                           <span className="text-[10px] uppercase tracking-wider bg-white/15 px-2 py-0.5 rounded-full border border-white/5 text-slate-300 font-bold">
                             {charData.role}
                           </span>
+                          <span className={`text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full border ${
+                            isNauczycielka 
+                              ? 'bg-amber-500/20 border-amber-500/30 text-amber-300' 
+                              : isTherapist 
+                                ? 'bg-red-500/20 border-red-500/30 text-red-300 animate-pulse' 
+                                : 'bg-cyan-500/20 border-cyan-500/30 text-cyan-300'
+                          }`}>
+                            {isNauczycielka 
+                              ? '🌼 PROTAGONISTKA (Nauczycielka)' 
+                              : isTherapist 
+                                ? '😈 ANTAGONISTKA (Terapeutka)' 
+                                : '⚖️ NEUTRALNA / MANIPULOWANA'}
+                          </span>
                         </div>
-                        <p className="text-xs text-slate-300 leading-relaxed font-medium">
+                        <p className="text-xs text-slate-200 leading-relaxed font-semibold">
                           {charData.description}
                         </p>
-                        <div className="border-t border-white/10 pt-2 text-[11px] text-slate-400 leading-relaxed">
-                          <span className="font-black uppercase font-mono tracking-wider text-[10px] text-slate-500">
-                            Profil ideowy:
-                          </span>{' '}
+                        <div className="border-t border-white/10 pt-2 text-[11px] text-slate-300 leading-relaxed font-medium">
+                          <span className="font-black uppercase font-mono tracking-wider text-[10px] text-slate-500 block mb-0.5">
+                            Rola w intrydze i rys fabularny:
+                          </span>
                           {charData.history}
                         </div>
                         <div className="flex gap-2 pt-1.5 flex-wrap">
-                          {charData.abilities.map((ab) => (
+                          {charData.abilities && charData.abilities.length > 0 && charData.abilities.map((ab) => (
                             <span key={ab} className="text-[9px] font-extrabold px-2 py-0.5 rounded-full bg-white/10 border border-white/5 text-amber-300">
                               ✨ {ab}
                             </span>
@@ -783,6 +898,20 @@ export default function MainMenu({
           )}
         </AnimatePresence>
       </div>
+
+      {/* Phone Snake Modal overlay */}
+      <AnimatePresence>
+        {isSnakeOpen && (
+          <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-2 sm:p-4">
+            <div className="w-full max-w-lg h-[92vh] max-h-[800px] bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border-2 border-emerald-500/40 relative flex flex-col">
+              <PhoneSnake
+                onClose={() => setIsSnakeOpen(false)}
+                username={playerProfile.username || 'Gracz'}
+              />
+            </div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* Footer credits with clean spacing */}
       <div className="z-10 p-4 text-center text-[10px] text-white/30 border-t border-white/10 bg-black/60 backdrop-blur-md font-mono select-none">
